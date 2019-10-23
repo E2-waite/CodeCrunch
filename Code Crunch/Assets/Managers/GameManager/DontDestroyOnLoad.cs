@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-   void Awake()
+    public static DontDestroyOnLoad Instance;
+    void Awake()
     {
-        DontDestroyOnLoad(this);
-        if (GameObject.Find("GameManager"))
+        if(Instance)
+                 DestroyImmediate(gameObject);
+             else
         {
-            Destroy(this);
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
         }
     }
 }
