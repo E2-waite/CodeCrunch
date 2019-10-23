@@ -5,5 +5,5 @@ using EventTypes;
 
 public class RotateCommand : Command
 {
-    
+
 }
