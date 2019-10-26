@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6828993803667346486}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6f48370f3a73f409271719e105a39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  num_robots: 4
   size_x: 4
   size_y: 10
   floor_prefab: {fileID: 6345619018403495058, guid: 81f02145cf6af444bb8f5e6591946425,
     type: 3}
+  robot_prefab: {fileID: 0}
