@@ -18,37 +18,57 @@ public class MoveByTouch : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit hit;
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 10f);
-            if (Physics.Raycast(ray, out hit))
+            Debug.Log(Input.touchCount);
+            for(int i = 0; i < Input.touchCount; ++i)
             {
-                Debug.Log(hit.transform.name);
-                if (hit.collider.CompareTag("Command"))
-                { 
-                    GameObject touchedObject = hit.transform.gameObject;
-                    selected = true;
-                }
+                Touch touch = Input.GetTouch(i);
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+                RaycastHit hit;
 
-                if (selected)
+                switch(i)
                 {
-                    Debug.Log("Moving!");
-                    Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 1.0f));
-                    transform.position = Vector3.MoveTowards(transform.position, target
-                        , timeStep);
-
-                   
+                    case 0:
+                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 10f);
+                        break;
+                    case 1:
+                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10f);
+                        break;
+                    case 2:
+                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 10f);
+                        break;
+                    case 3:
+                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.green, 10f);
+                        break;
+                    default:
+                        break;
                 }
+                
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.Log(hit.transform.name);
+                    if (hit.collider.CompareTag("Command"))
+                    {
+                        GameObject touchedObject = hit.transform.gameObject;
+                        selected = true;
+                    }
+
+                    if (selected)
+                    {
+                        Debug.Log("Moving!");
+                        Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 1.0f));
+                        transform.position = Vector3.MoveTowards(transform.position, target
+                            , timeStep);
+
+
+                    }
+                    if (touch.phase == TouchPhase.Ended && selected)
+                    {
+                        selected = false;
+                        Debug.Log("User released cube");
+                    }
+                }
+            
             }
-
-            if(touch.phase == TouchPhase.Ended && selected)
-            {
-                selected = false;
-                Debug.Log("User released cube");
-            }
-
-
         }
 
 
