@@ -16,6 +16,7 @@ public class Grid : MonoBehaviour
     {
         spaces = new GameObject[size_x, size_y];
 
+        // Sets up multidimensional array of grid tiles and sets their world position.
         for (int i = 0; i < size_y; i++)
         {
             for (int j = 0; j < size_x; j++)
@@ -43,14 +44,16 @@ public class Grid : MonoBehaviour
             }
         }
 
+        // Spawns robots in the centre of the first row of grid tiles.
         robots = new GameObject[num_robots];
         for (int i = 0; i < num_robots; i++)
         {
-            robots[i] = Instantiate(robot_prefab, new Vector3(0, 0, 0), Quaternion.identity);
-            robots[i].transform.parent = spaces[i, 0].transform;
-            robots[i].transform.position = spaces[i, 0].transform.position;
+            int spawn_pos = ((size_x / 2) - (num_robots / 2)) + i;
+            robots[i] = Instantiate(robot_prefab, new Vector3(spaces[spawn_pos, 0].transform.position.x, 0.6f, spaces[spawn_pos, 0].transform.position.z), Quaternion.identity);
+            robots[i].name = "Player " + (i + 1).ToString();
+            robots[i].transform.parent = spaces[spawn_pos, 0].transform;
             RobotMovement move_scr = robots[i].GetComponent<RobotMovement>();
-            move_scr.x_pos = i;
+            move_scr.x_pos = spawn_pos;
         }
     }
 
@@ -61,6 +64,7 @@ public class Grid : MonoBehaviour
 
     public bool CheckTile(int x, int y)
     {
+        // Checks if entered tile is not outside of the grid, exists and does not have robot/obstacle on it.
         if (x < size_x && x >= 0 && y < size_y && y >= 0)
         {
             if (spaces[x, y] != null)

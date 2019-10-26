@@ -47,16 +47,21 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveRobot(int x_dir, int y_dir)
+    public bool MoveRobot(int x_dir, int y_dir)
     {
         if (grid_script.CheckTile(x_pos + x_dir, y_pos + y_dir) && !moving)
-        {
+        { 
             transform.parent = null;
             transform.parent = grid_script.GetTile(x_pos + x_dir, y_pos + y_dir).transform;
             x_pos = x_pos + x_dir;
             y_pos = y_pos + y_dir;
-            move_target = transform.parent.position;
+            move_target = new Vector3(transform.parent.position.x, 0.6f, transform.parent.position.z);
             moving = true;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
