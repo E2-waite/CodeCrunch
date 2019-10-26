@@ -11,7 +11,7 @@ public class MoveByTouch : MonoBehaviour
 
     public bool selected = false;
 
-    //public GameObject target;
+    public GameObject[] selectedObjects;
     void Update()
     {
         timeStep += 0.03f * Time.deltaTime;
@@ -25,47 +25,32 @@ public class MoveByTouch : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
                 RaycastHit hit;
 
-                switch(i)
-                {
-                    case 0:
-                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 10f);
-                        break;
-                    case 1:
-                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10f);
-                        break;
-                    case 2:
-                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 10f);
-                        break;
-                    case 3:
-                        Debug.DrawRay(ray.origin, ray.direction * 100, Color.green, 10f);
-                        break;
-                    default:
-                        break;
-                }
-                
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log(hit.transform.name);
                     if (hit.collider.CompareTag("Command"))
                     {
-                        GameObject touchedObject = hit.transform.gameObject;
-                        selected = true;
-                    }
-
-                    if (selected)
-                    {
-                        Debug.Log("Moving!");
+                        selectedObjects[i] = hit.transform.gameObject;
                         Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 1.0f));
-                        transform.position = Vector3.MoveTowards(transform.position, target
+                        selectedObjects[i].transform.position = Vector3.MoveTowards(transform.position, target
                             , timeStep);
-
-
                     }
-                    if (touch.phase == TouchPhase.Ended && selected)
+
+
+
+                    if(touch.phase == TouchPhase.Ended)
                     {
-                        selected = false;
-                        Debug.Log("User released cube");
+                        //selectedObjects[i] =  ;
+                 
                     }
+
+                    //if (selected)
+                    //{
+                    //    Debug.Log("Moving!");
+                    //    Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 1.0f));
+                    //    transform.position = Vector3.MoveTowards(transform.position, target
+                    //        , timeStep);
+                    //}
                 }
             
             }
@@ -74,5 +59,22 @@ public class MoveByTouch : MonoBehaviour
 
     }
 }
-/*If user input touch is within sprite bounds, 
- * lerp position towards the input thats inside first. If released then fall down as normal */
+
+
+//switch(i)
+//{
+//    case 0:
+//        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 10f);
+//        break;
+//    case 1:
+//        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10f);
+//        break;
+//    case 2:
+//        Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue, 10f);
+//        break;
+//    case 3:
+//        Debug.DrawRay(ray.origin, ray.direction * 100, Color.green, 10f);
+//        break;
+//    default:
+//        break;
+//}
