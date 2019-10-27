@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deleteCommand : MonoBehaviour
+public class DeleteCommand : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("delete"))
+        if (other.gameObject.CompareTag("Delete"))
         {
             Destroy(this.gameObject);
         }
