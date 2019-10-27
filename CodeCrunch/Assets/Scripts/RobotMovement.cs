@@ -21,7 +21,7 @@ public class RobotMovement : MonoBehaviour
     {
         if (Input.GetKeyUp("up"))
         {
-            MoveRobot(0, 1);
+            MoveRobot(0, 2);
         }
         if (Input.GetKeyUp("left"))
         {
