@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Command
+  - Grid
+  - delete
   layers:
   - Default
   - TransparentFX
