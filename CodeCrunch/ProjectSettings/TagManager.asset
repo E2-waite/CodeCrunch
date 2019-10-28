@@ -9,6 +9,7 @@ TagManager:
   - delete
   - Repository
   - Canvas
+  - Robot
   layers:
   - Default
   - TransparentFX

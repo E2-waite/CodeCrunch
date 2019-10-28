@@ -11,7 +11,7 @@ public class Grid : MonoBehaviour
     private GameObject[] robots;
     public GameObject floor_prefab;
     public GameObject robot_prefab;
-
+    RobotMovement rob_mov;
     void Start()
     {
         spaces = new GameObject[size_x, size_y];
@@ -49,11 +49,29 @@ public class Grid : MonoBehaviour
         for (int i = 0; i < num_robots; i++)
         {
             int spawn_pos = ((size_x / 2) - (num_robots / 2)) + i;
-            robots[i] = Instantiate(robot_prefab, new Vector3(spaces[spawn_pos, 0].transform.position.x, 0.6f, spaces[spawn_pos, 0].transform.position.z), Quaternion.identity);
+            robots[i] = Instantiate(robot_prefab, new Vector3(spaces[spawn_pos, 0].transform.position.x, 0.5f, spaces[spawn_pos, 0].transform.position.z), Quaternion.identity);
             robots[i].name = "Player " + (i + 1).ToString();
             robots[i].transform.parent = spaces[spawn_pos, 0].transform;
             RobotMovement move_scr = robots[i].GetComponent<RobotMovement>();
             move_scr.x_pos = spawn_pos;
+        }
+
+        rob_mov = robots[0].GetComponent<RobotMovement>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp("up"))
+        {
+            rob_mov.MoveForward();
+        }
+        if (Input.GetKeyUp("left"))
+        {
+            rob_mov.RotateRobot(false);
+        }
+        if (Input.GetKeyUp("right"))
+        {
+            rob_mov.RotateRobot(true);
         }
     }
 
@@ -64,17 +82,27 @@ public class Grid : MonoBehaviour
 
     public bool CheckTile(int x, int y)
     {
-        // Checks if entered tile is not outside of the grid, exists and does not have robot/obstacle on it.
+        // Checks if entered tile is not outside of the grid and exists
         if (x < size_x && x >= 0 && y < size_y && y >= 0)
         {
             if (spaces[x, y] != null)
             {
-                if (spaces[x, y].transform.childCount == 0)
-                {
-                    return true;
-                }              
+                return true;           
             }
         }
         return false;
+    }
+
+    public GameObject GetFreeTile(int y)
+    {
+        // Returns the first free tile on the selected row
+        for (int i = 0; i < size_x; i++)
+        {
+            if (spaces[i,y].transform.childCount == 0)
+            {
+                return spaces[i, y];
+            }
+        }
+        return null;
     }
 }
