@@ -22,5 +22,11 @@ public class falling : MonoBehaviour
         _newPosition.x += (Mathf.Cos(Time.time) * Time.deltaTime * speedx) * magnitude;
         _newPosition.y -= Time.deltaTime * speedy;
         transform.position = _newPosition;
+
+        //If command falls off screen then delete the command.
+        if(gameObject.GetComponent<RectTransform>().localPosition.y < -650)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

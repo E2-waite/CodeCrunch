@@ -7,6 +7,8 @@ TagManager:
   - Command
   - Grid
   - delete
+  - Repository
+  - Canvas
   layers:
   - Default
   - TransparentFX
