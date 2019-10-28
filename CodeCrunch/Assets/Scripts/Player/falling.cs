@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class falling : MonoBehaviour
 {
-    private Vector3 _newPosition;
-    public float magnitude;
-    private float speedx;
-    private float speedy;
+    [SerializeField] private Vector3 _newPosition;
+    [SerializeField] public float magnitude;
+    [SerializeField] private float speedx;
+    [SerializeField] private float speedy;
 
     void Start()
     {
         speedx = Random.Range(1f, 2f);
-        magnitude = Random.Range(-0.5f, 0.5f);
+        magnitude = Random.Range(-500f, 500f);
         speedy = Random.Range(0.01f, 0.1f);
     }
 

@@ -6,7 +6,7 @@ public class DeleteCommand : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Delete"))
+        if (other.gameObject.CompareTag("delete"))
         {
             Destroy(this.gameObject);
         }
