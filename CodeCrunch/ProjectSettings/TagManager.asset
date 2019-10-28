@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Command
   - Grid
+  - delete
+  - Repository
+  - Canvas
   - Robot
   layers:
   - Default
@@ -15,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Command
   - 
   - 
   - 
