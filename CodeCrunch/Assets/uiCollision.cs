@@ -9,7 +9,10 @@ public class uiCollision : MonoBehaviour
         Debug.Log("Collision/Trigger");
         if (other.gameObject.CompareTag("Command"))
         {
-            Destroy(other.gameObject);
+            if(other.gameObject.GetComponent<OnUITouch>().dragging)
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

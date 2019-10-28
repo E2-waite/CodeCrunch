@@ -44,6 +44,7 @@ public class moveUiWithTouch : MonoBehaviour
                     if (result.gameObject.CompareTag("Command"))
                     {
                         Debug.Log("Hit " + result.gameObject.tag);
+                        result.gameObject.GetComponent<OnUITouch>().dragging = true;
                         result.gameObject.transform.position = Input.GetTouch(i).position;
                     }
                 }
