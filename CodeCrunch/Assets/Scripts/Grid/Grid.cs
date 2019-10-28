@@ -86,7 +86,7 @@ public class Grid : MonoBehaviour
 
     public bool CheckTile(int x, int y)
     {
-        // Checks if entered tile is not outside of the grid, exists and does not have robot/obstacle on it.
+        // Checks if entered tile is not outside of the grid and exists
         if (x < size_x && x >= 0 && y < size_y && y >= 0)
         {
             if (spaces[x, y] != null)
@@ -95,5 +95,18 @@ public class Grid : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public GameObject GetFreeTile(int y)
+    {
+        // Returns the first free tile on the selected row
+        for (int i = 0; i < size_x; i++)
+        {
+            if (spaces[i,y].transform.childCount == 0)
+            {
+                return spaces[i, y];
+            }
+        }
+        return null;
     }
 }

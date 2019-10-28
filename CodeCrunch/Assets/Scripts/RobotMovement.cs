@@ -21,68 +21,49 @@ public class RobotMovement : MonoBehaviour
     }
 
     void Update()
-    {      
-        if (moving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, move_target, Time.deltaTime * move_speed);
-        }
-
-        if (falling)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, fall_target, Time.deltaTime * fall_speed);
-        }
-
-        if (transform.position == move_target)
-        {
-            if (transform.parent == null)
-            {
-                falling = true;
-            }
-            moving = false;
-        }
-
-        if (transform.position == fall_target)
-        {
-            // When robot has fallen off the edge respawn
-            Respawn();
-        }
+    {
+        UpdatePosition();
     }
 
     public bool MoveRobot(int x_dir, int y_dir)
     {
         int x = x_pos + x_dir, y = y_pos + y_dir;
-        if (grid_script.CheckTile(x, y))
+        if (!moving && !falling)
         {
-            // If tile is within the grid
-            if (grid_script.GetTile(x, y).transform.childCount == 0)
+            if (grid_script.CheckTile(x, y))
             {
-                // If tile is empty, move to tile
-                Movement(x, y);
-                return true;
-            }
-            else
-            {
-                if (grid_script.GetTile(x, y).transform.GetChild(0).gameObject.tag == "Robot")
+                // If tile is within the grid
+                if (grid_script.GetTile(x, y).transform.childCount == 0)
                 {
-                    // If tile is not empty, check if tile's child is robot
-                    RobotMovement robot_scr = grid_script.GetTile(x, y).transform.GetChild(0).gameObject.GetComponent<RobotMovement>();
-                    if (robot_scr.MoveRobot(x_dir, y_dir))
+                    // If tile is empty, move to tile
+                    Movement(x, y);
+                    return true;
+                }
+                else
+                {
+                    if (grid_script.GetTile(x, y).transform.GetChild(0).gameObject.tag == "Robot")
                     {
-                        // If robot is pushed, move this robot to pushed robot's old position
-                        Movement(x, y);
-                        return true;
+                        // If tile is not empty, check if tile's child is robot
+                        RobotMovement robot_scr = grid_script.GetTile(x, y).transform.GetChild(0).gameObject.GetComponent<RobotMovement>();
+                        if (robot_scr.MoveRobot(x_dir, y_dir))
+                        {
+                            // If robot is pushed, move this robot to pushed robot's old position
+                            Movement(x, y);
+                            return true;
+                        }
+                        return false;
                     }
                     return false;
                 }
-                return false;
+            }
+            else
+            {
+                // If tile is not within grid fall off edge of the map
+                Fall(x, y);
+                return true;
             }
         }
-        else
-        {
-            // If tile is not within grid fall off edge of the map
-            Fall(x, y);
-            return true;
-        }
+        return false;
     }
 
     void Movement(int x, int y)
@@ -100,12 +81,52 @@ public class RobotMovement : MonoBehaviour
     {
         transform.parent = null;
         move_target = new Vector3(x, 0.5f, y);
-        fall_target = new Vector3(x, -20.0f, y);
+        fall_target = new Vector3(x, -10.0f, y);
         moving = true;
     }
 
-    void Respawn()
+    public void Respawn()
     {
+        // Set robot's parent to random free tile on row died on
+        transform.parent = grid_script.GetFreeTile(y_pos).transform;
+        x_pos = Mathf.RoundToInt(transform.parent.position.x);
+        y_pos = Mathf.RoundToInt(transform.parent.position.y);
+        transform.position = new Vector3(x_pos, 10.0f, y_pos);
+        fall_target = new Vector3(transform.parent.position.x, 0.5f, transform.parent.position.z);
+    }
 
+    void UpdatePosition()
+    {
+        if (moving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, move_target, Time.deltaTime * move_speed);
+        }
+
+        if (falling)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, fall_target, Time.deltaTime * fall_speed);
+        }
+
+        // If the robot has no parent, it is falling off the grid
+        if (transform.position == move_target)
+        {
+            if (transform.parent == null)
+            {
+                falling = true;
+            }
+            moving = false;
+        }
+
+        if (transform.position == fall_target)
+        {
+            if (transform.parent == null)
+            {
+                Respawn();
+            }
+            else
+            {
+                falling = false;
+            }
+        }
     }
 }
