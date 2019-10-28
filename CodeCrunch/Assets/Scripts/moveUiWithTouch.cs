@@ -49,7 +49,6 @@ public class moveUiWithTouch : MonoBehaviour
                         if (Input.GetTouch(i).phase == TouchPhase.Ended)
                         {
                             result.gameObject.GetComponent<OnUITouch>().dragging = false;
-
                         }
                     }
                 }
