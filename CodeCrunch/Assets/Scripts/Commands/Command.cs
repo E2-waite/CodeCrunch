@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Command : MonoBehaviour
+public abstract class Command : MonoBehaviour
 {
+    public abstract void DoCommand();
 
     public CommandSpawnManager Csm;
     public RobotMovement Rm;

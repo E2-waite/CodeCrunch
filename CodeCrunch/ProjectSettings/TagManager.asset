@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Command
-  - Delete
   - Grid
+  - delete
+  - Repository
+  - Canvas
   layers:
   - Default
   - TransparentFX
