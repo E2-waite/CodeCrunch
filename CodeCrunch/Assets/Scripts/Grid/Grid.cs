@@ -11,7 +11,7 @@ public class Grid : MonoBehaviour
     private GameObject[] robots;
     public GameObject floor_prefab;
     public GameObject robot_prefab;
-
+    RobotMovement rob_mov;
     void Start()
     {
         spaces = new GameObject[size_x, size_y];
@@ -49,11 +49,33 @@ public class Grid : MonoBehaviour
         for (int i = 0; i < num_robots; i++)
         {
             int spawn_pos = ((size_x / 2) - (num_robots / 2)) + i;
-            robots[i] = Instantiate(robot_prefab, new Vector3(spaces[spawn_pos, 0].transform.position.x, 0.6f, spaces[spawn_pos, 0].transform.position.z), Quaternion.identity);
+            robots[i] = Instantiate(robot_prefab, new Vector3(spaces[spawn_pos, 0].transform.position.x, 0.5f, spaces[spawn_pos, 0].transform.position.z), Quaternion.identity);
             robots[i].name = "Player " + (i + 1).ToString();
             robots[i].transform.parent = spaces[spawn_pos, 0].transform;
             RobotMovement move_scr = robots[i].GetComponent<RobotMovement>();
             move_scr.x_pos = spawn_pos;
+        }
+
+        rob_mov = robots[0].GetComponent<RobotMovement>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp("up"))
+        {
+            rob_mov.MoveRobot(0, 1);
+        }
+        if (Input.GetKeyUp("left"))
+        {
+            rob_mov.MoveRobot(-1, 0);
+        }
+        if (Input.GetKeyUp("down"))
+        {
+            rob_mov.MoveRobot(0, -1);
+        }
+        if (Input.GetKeyUp("right"))
+        {
+            rob_mov.MoveRobot(1, 0);
         }
     }
 
@@ -69,10 +91,7 @@ public class Grid : MonoBehaviour
         {
             if (spaces[x, y] != null)
             {
-                if (spaces[x, y].transform.childCount == 0)
-                {
-                    return true;
-                }              
+                return true;           
             }
         }
         return false;

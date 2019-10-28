@@ -18,24 +18,7 @@ public class RobotMovement : MonoBehaviour
     }
 
     void Update()
-    {
-        if (Input.GetKeyUp("up"))
-        {
-            MoveRobot(0, 1);
-        }
-        if (Input.GetKeyUp("left"))
-        {
-            MoveRobot(-1, 0);
-        }
-        if (Input.GetKeyUp("down"))
-        {
-            MoveRobot(0, -1);
-        }
-        if (Input.GetKeyUp("right"))
-        {
-            MoveRobot(1, 0);
-        }
-
+    {      
         if(moving)
         {
             transform.position = Vector3.MoveTowards(transform.position, move_target, Time.deltaTime * move_speed);
@@ -49,19 +32,43 @@ public class RobotMovement : MonoBehaviour
 
     public bool MoveRobot(int x_dir, int y_dir)
     {
-        if (grid_script.CheckTile(x_pos + x_dir, y_pos + y_dir) && !moving)
-        { 
-            transform.parent = null;
-            transform.parent = grid_script.GetTile(x_pos + x_dir, y_pos + y_dir).transform;
-            x_pos = x_pos + x_dir;
-            y_pos = y_pos + y_dir;
-            move_target = new Vector3(transform.parent.position.x, 0.6f, transform.parent.position.z);
-            moving = true;
-            return true;
-        }
-        else
+        int x = x_pos + x_dir, y = y_pos + y_dir;
+        if (grid_script.CheckTile(x, y))
         {
-            return false;
+            if (grid_script.GetTile(x, y).transform.childCount == 0)
+            {
+                // If tile is empty, move to tile
+                Movement(x, y);
+                return true;
+            }
+            else
+            {
+                if (grid_script.GetTile(x, y).transform.GetChild(0).gameObject.tag == "Robot")
+                {
+                    // If tile is not empty, check if tile's child is robot
+                    RobotMovement robot_scr = grid_script.GetTile(x, y).transform.GetChild(0).gameObject.GetComponent<RobotMovement>();
+                    if (robot_scr.MoveRobot(x_dir, y_dir))
+                    {
+                        // If robot is pushed, move this robot to psuehd robot's old position
+                        Movement(x, y);
+                        return true;
+                    }                    
+                    return false;                  
+                }
+                return false;
+            }
         }
+        return false;
+    }
+
+    void Movement(int x, int y)
+    {
+        // Update this robot's position and parent
+        transform.parent = null;
+        transform.parent = grid_script.GetTile(x, y).transform;
+        x_pos = x;
+        y_pos = y;
+        move_target = new Vector3(transform.parent.position.x, 0.5f, transform.parent.position.z);
+        moving = true;
     }
 }
