@@ -12,6 +12,7 @@ public class Grid : MonoBehaviour
     public GameObject floor_prefab;
     public GameObject robot_prefab;
     RobotMovement rob_mov;
+    RobotMovement rob_mov2;
     void Start()
     {
         spaces = new GameObject[size_x, size_y];
@@ -57,6 +58,7 @@ public class Grid : MonoBehaviour
         }
 
         rob_mov = robots[0].GetComponent<RobotMovement>();
+        rob_mov2 = robots[1].GetComponent<RobotMovement>();
     }
 
     void Update()
@@ -73,6 +75,22 @@ public class Grid : MonoBehaviour
         {
             rob_mov.RotateRobot(true);
         }
+        if (Input.GetKeyUp("w"))
+        {
+            rob_mov2.MoveForward();
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            rob_mov2.RotateRobot(false);
+        }
+        if (Input.GetKeyUp("d"))
+        {
+            rob_mov2.RotateRobot(true);
+        }
+    }
+    public GameObject GetRobot(int num)
+    {
+        return robots[num];
     }
 
     public GameObject GetTile(int x, int y)
