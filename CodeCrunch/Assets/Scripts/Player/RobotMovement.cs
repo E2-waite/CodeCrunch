@@ -17,25 +17,42 @@ public class RobotMovement : MonoBehaviour
         grid_script = grid.GetComponent<Grid>();
     }
 
-    void Update()
+
+    public void Forward()
     {
         if (Input.GetKeyUp("up"))
         {
             MoveRobot(0, 2);
         }
+    }
+
+   public void Left()
+    {
         if (Input.GetKeyUp("left"))
         {
             MoveRobot(-1, 0);
         }
+    }
+
+   public void Down()
+    {
         if (Input.GetKeyUp("down"))
         {
             MoveRobot(0, -1);
         }
+    }
+
+   public void Right()
+    {
         if (Input.GetKeyUp("right"))
         {
             MoveRobot(1, 0);
         }
+    }
 
+    void Update()
+    {
+        
         if(moving)
         {
             transform.position = Vector3.MoveTowards(transform.position, move_target, Time.deltaTime * move_speed);
