@@ -431,9 +431,8 @@ MonoBehaviour:
   minSpawnTime: 2
   maxSpawnTime: 4
   commands:
-  - {fileID: 5420835507991150410, guid: 3c79703973811b646aa31f0f0ec873ad, type: 3}
-  - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
   - {fileID: 5420835507991150410, guid: c08b4329741510b46b299db5f7b430c9, type: 3}
+  - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
 --- !u!1 &1049476511
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,36 +692,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3747939240678715216}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2130157294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2130157295}
-  m_Layer: 0
-  m_Name: TouchManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2130157295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130157294}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1790847399}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3747939240678715216
 PrefabInstance:
   m_ObjectHideFlags: 0
