@@ -88,9 +88,10 @@ public class RobotMovement : MonoBehaviour
     public void Respawn()
     {
         // Set robot's parent to random free tile on row died on
+        transform.parent = null;
         transform.parent = grid_script.GetFreeTile(y_pos).transform;
         x_pos = Mathf.RoundToInt(transform.parent.position.x);
-        y_pos = Mathf.RoundToInt(transform.parent.position.y);
+        y_pos = Mathf.RoundToInt(transform.parent.position.z);
         transform.position = new Vector3(x_pos, 10.0f, y_pos);
         fall_target = new Vector3(transform.parent.position.x, 0.5f, transform.parent.position.z);
     }
