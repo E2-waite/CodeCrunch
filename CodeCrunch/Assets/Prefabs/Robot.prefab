@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7964690263099981351}
   - component: {fileID: 7964690263099981348}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Robot
+  m_TagString: Robot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7964690263099981349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.3214378, y: -0.6919651, z: 5.1118793}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b14727f6261b7464cafa7c465ad0b7b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,4 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de945f50816cf2145b688ae0d9b07bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
+  move_speed: 3
+  fall_speed: 7.5
+  turn_speed: 5
+  x_pos: 0
+  y_pos: 0

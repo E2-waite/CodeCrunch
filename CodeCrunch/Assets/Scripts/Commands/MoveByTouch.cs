@@ -22,37 +22,7 @@ public class MoveByTouch : MonoBehaviour
             for(int i = 0; i < Input.touchCount; ++i)
             {
                 Touch touch = Input.GetTouch(i);
-                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log(hit.transform.name);
-                    if (hit.collider.CompareTag("Command"))
-                    {
-                        selectedObjects[i] = hit.transform.gameObject;
-                        Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 1.0f));
-                        selectedObjects[i].transform.position = Vector3.MoveTowards(transform.position, target
-                            , timeStep);
-                    }
-
-
-
-                    if(touch.phase == TouchPhase.Ended)
-                    {
-                        //selectedObjects[i] =  ;
-                 
-                    }
-
-                    //if (selected)
-                    //{
-                    //    Debug.Log("Moving!");
-                    //    Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 1.0f));
-                    //    transform.position = Vector3.MoveTowards(transform.position, target
-                    //        , timeStep);
-                    //}
-                }
-            
             }
         }
 

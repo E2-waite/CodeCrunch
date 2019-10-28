@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCommand : Command
+public class MoveCommand : CommandType
 {
     public override void DoCommand()
     {

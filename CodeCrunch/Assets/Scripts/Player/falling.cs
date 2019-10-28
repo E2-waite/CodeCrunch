@@ -13,7 +13,7 @@ public class falling : MonoBehaviour
     {
         speedx = Random.Range(1f, 2f);
         magnitude = Random.Range(-500f, 500f);
-        speedy = Random.Range(0.01f, 0.1f);
+        speedy = Random.Range(10f, 100f);
     }
 
     void Update()
