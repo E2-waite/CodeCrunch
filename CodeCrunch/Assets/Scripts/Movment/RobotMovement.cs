@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class RobotMovement : MonoBehaviour
 {
+    private enum Direction { up, right, down, left };
     public float move_speed = 1.0f;
     public float fall_speed = 5.0f;
+    public float turn_speed = 2.0f;
     public int x_pos, y_pos = 0;
     Grid grid_script;
     GameObject grid;    
@@ -14,7 +16,6 @@ public class RobotMovement : MonoBehaviour
     bool moving = false;
     bool falling = false;
     bool turning = false;
-    private enum Direction {up, right, down, left};
     Direction direction = Direction.up;
 
     void Start()
@@ -66,7 +67,7 @@ public class RobotMovement : MonoBehaviour
         {
             if(clockwise)
             {
-                StartCoroutine(RotateMe(Vector3.up * 90, 1.0f));
+                StartCoroutine(RotateMe(Vector3.up * 90, 0.5f));
                 if (direction == Direction.left)
                 {
                     direction = Direction.up;
@@ -78,7 +79,7 @@ public class RobotMovement : MonoBehaviour
             }
             else
             {
-                StartCoroutine(RotateMe(Vector3.up * -90, 1.0f));
+                StartCoroutine(RotateMe(Vector3.up * -90, 0.5f));
                 if (direction == Direction.up)
                 {
                     direction = Direction.left;
@@ -95,6 +96,7 @@ public class RobotMovement : MonoBehaviour
 
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
     {
+        turning = true;
         var fromAngle = transform.rotation;
         var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
         for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
@@ -102,12 +104,14 @@ public class RobotMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
             yield return null;
         }
+        transform.rotation = toAngle;
+        turning = false;
     }
 
     public bool MoveRobot(int x_dir, int y_dir)
     {
         int x = x_pos + x_dir, y = y_pos + y_dir;
-        if (!moving && !falling)
+        if (!moving && !falling && !turning)
         {
             if (grid_script.CheckTile(x, y))
             {
