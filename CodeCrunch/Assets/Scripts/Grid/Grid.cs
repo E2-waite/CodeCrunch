@@ -63,19 +63,15 @@ public class Grid : MonoBehaviour
     {
         if (Input.GetKeyUp("up"))
         {
-            rob_mov.MoveRobot(0, 1);
+            rob_mov.MoveForward();
         }
         if (Input.GetKeyUp("left"))
         {
-            rob_mov.MoveRobot(-1, 0);
-        }
-        if (Input.GetKeyUp("down"))
-        {
-            rob_mov.MoveRobot(0, -1);
+            rob_mov.RotateRobot(false);
         }
         if (Input.GetKeyUp("right"))
         {
-            rob_mov.MoveRobot(1, 0);
+            rob_mov.RotateRobot(true);
         }
     }
 

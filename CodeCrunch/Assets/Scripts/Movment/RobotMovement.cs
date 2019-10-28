@@ -13,6 +13,9 @@ public class RobotMovement : MonoBehaviour
     Vector3 fall_target;
     bool moving = false;
     bool falling = false;
+    bool turning = false;
+    private enum Direction {up, right, down, left};
+    Direction direction = Direction.up;
 
     void Start()
     {
@@ -23,6 +26,82 @@ public class RobotMovement : MonoBehaviour
     void Update()
     {
         UpdatePosition();
+    }
+
+    public bool MoveForward()
+    {
+        switch(direction)
+        {
+            default:
+            {
+                return false;
+                break;
+            }
+            case Direction.up:
+            {
+                return MoveRobot(0, 1);
+                break;
+            }
+            case Direction.right:
+            {
+                return MoveRobot(1, 0);
+                break;
+            }
+            case Direction.down:
+            {
+                return MoveRobot(0, -1);
+                break;
+            }
+            case Direction.left:
+            {
+                return MoveRobot(-1, 0);
+                break;
+            }
+        }
+    }
+
+    public bool RotateRobot(bool clockwise)
+    {
+        if (!moving && !turning && !falling)
+        {
+            if(clockwise)
+            {
+                StartCoroutine(RotateMe(Vector3.up * 90, 1.0f));
+                if (direction == Direction.left)
+                {
+                    direction = Direction.up;
+                }
+                else
+                {
+                    direction++;
+                }
+            }
+            else
+            {
+                StartCoroutine(RotateMe(Vector3.up * -90, 1.0f));
+                if (direction == Direction.up)
+                {
+                    direction = Direction.left;
+                }
+                else
+                {
+                    direction--;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator RotateMe(Vector3 byAngles, float inTime)
+    {
+        var fromAngle = transform.rotation;
+        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        {
+            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+            yield return null;
+        }
     }
 
     public bool MoveRobot(int x_dir, int y_dir)
@@ -102,7 +181,6 @@ public class RobotMovement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, move_target, Time.deltaTime * move_speed);
         }
-
         if (falling)
         {
             transform.position = Vector3.MoveTowards(transform.position, fall_target, Time.deltaTime * fall_speed);
