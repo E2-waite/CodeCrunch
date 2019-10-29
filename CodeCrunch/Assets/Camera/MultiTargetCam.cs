@@ -15,23 +15,26 @@ public class MultiTargetCam : MonoBehaviour
     [SerializeField] private float maxZoom;
     [SerializeField] private float zoomLimit;
 
+
     //This gets a gameObject with all the players as child objects. e.g. a prefab with 2-4 child objects
-    [SerializeField] GameObject players;
+    [SerializeField]private GameObject[] allRobots;
 
     private Camera cam;
 
     void Start()
     {
         //Set active camera
-        cam = GetComponent<Camera>();
+        cam = Camera.main;
 
         //Find Game object with player and assign it with the players prefab gameobject.
-        players = GameObject.FindGameObjectWithTag("Players");
+        allRobots = GameObject.FindGameObjectsWithTag("Robot");
 
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
-        for(int i = 0; i < players.transform.childCount; ++i)
+
+        var robotCount = allRobots.Length;
+        foreach(var obj in allRobots)
         {
-                targets.Add(players.transform.GetChild(i));    
+            targets.Add(obj.transform);
         }
     }
 
