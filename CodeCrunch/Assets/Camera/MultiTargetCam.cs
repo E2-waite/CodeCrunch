@@ -26,7 +26,7 @@ public class MultiTargetCam : MonoBehaviour
         cam = GetComponent<Camera>();
 
         //Find Game object with player and assign it with the players prefab gameobject.
-        players = GameObject.FindGameObjectWithTag("Players");
+        players = GameObject.FindGameObjectWithTag("Robot");
 
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
         for(int i = 0; i < players.transform.childCount; ++i)
