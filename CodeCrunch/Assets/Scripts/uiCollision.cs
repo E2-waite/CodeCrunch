@@ -11,8 +11,8 @@ public class uiCollision : MonoBehaviour
         {
             if(other.gameObject.GetComponent<OnUITouch>().dragging)
             {
-                //Destroy(other.gameObject);
                 GetComponent<Repository>().addCommandToRepo(other.gameObject.GetComponent<ActiveCommand>().GetCommand());
+                Destroy(other.gameObject);
             }
         }
     }
