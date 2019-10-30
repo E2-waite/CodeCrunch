@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileDrop : MonoBehaviour
 {
-    public float countdown_time = 5.0f;
+    public float countdown_time = 2.0f;
     float time_left;
     // Start is called before the first frame update
     void Start()

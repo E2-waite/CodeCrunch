@@ -124,14 +124,51 @@ public class Grid : MonoBehaviour
         {
             check_y = y - 1;
         }
-        // Returns the first free tile on the selected row
+
+        bool found_tile = false;
+        while (!found_tile)
+        {
+            GameObject checked_tile = CheckRow(check_y);
+            if (checked_tile != null)
+            {
+                return checked_tile;
+            }
+            check_y -= 1;
+        }      
+        return null;
+    }
+
+    GameObject CheckRow(int y)
+    {
+        bool all_checked = false;
+        bool[] tile_checked = new bool[size_x];
         for (int i = 0; i < size_x; i++)
         {
-            if (spaces[i, check_y] != null)
+            tile_checked[i] = false;
+        }
+
+        while (!all_checked)
+        {
+            int rand_check = Random.Range(0, size_x);
+            if (spaces[rand_check, y] != null)
             {
-                if (spaces[i, check_y].transform.childCount == 0)
+                if (spaces[rand_check, y].transform.childCount == 0)
                 {
-                    return spaces[i, check_y];
+                    return spaces[rand_check, y];
+                }
+            }
+            tile_checked[rand_check] = true;
+            for (int i = 0; i < size_x; i++)
+            {
+                if (tile_checked[i])
+                {
+                    all_checked = true;
+                    return null;
+                }
+                else
+                {
+                    all_checked = false;
+                    break;
                 }
             }
         }
