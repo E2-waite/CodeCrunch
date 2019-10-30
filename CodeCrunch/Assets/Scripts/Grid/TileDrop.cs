@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TileDrop : MonoBehaviour
 {
-    bool active = false;
     public float countdown_time = 5.0f;
     float time_left;
     // Start is called before the first frame update
@@ -19,12 +18,10 @@ public class TileDrop : MonoBehaviour
         if (transform.childCount > 0)
         {
             time_left -= 1 * Time.deltaTime;
-            active = true;
         }
         else
         {
             time_left = countdown_time;
-            active = false;
         }
 
         if (time_left <= 0)
