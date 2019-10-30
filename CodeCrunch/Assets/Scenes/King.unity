@@ -322,25 +322,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &510715614 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1565933181788161531}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &510715622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510715614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fedb459eb34ff44e92dba4fc8dcfe93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cmd: 0
 --- !u!1001 &941295899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,6 +442,7 @@ MonoBehaviour:
   commands:
   - {fileID: 5420835507991150410, guid: c08b4329741510b46b299db5f7b430c9, type: 3}
   - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
+  - {fileID: 5420835507991150410, guid: 69a8a57c7f455644b8d7b0e81821ed26, type: 3}
   commandToSpawn: 0
   Rm: {fileID: 0}
   CommandText: {fileID: 0}
