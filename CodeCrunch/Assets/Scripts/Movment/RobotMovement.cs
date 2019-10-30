@@ -9,6 +9,7 @@ public class RobotMovement : MonoBehaviour
     public float fall_speed = 5.0f;
     public float turn_speed = 2.0f;
     public int x_pos, y_pos = 0;
+    public GameObject rocket_prefab;
     Grid grid_script;
     GameObject grid;    
     Vector3 move_target;
@@ -26,6 +27,18 @@ public class RobotMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp("w"))
+        {
+            MoveForward();
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            RotateRobot(false);
+        }
+        if (Input.GetKeyUp("d"))
+        {
+            RotateRobot(true);
+        }
         UpdatePosition();
     }
 
@@ -160,7 +173,7 @@ public class RobotMovement : MonoBehaviour
         moving = true;
     } 
 
-    void Fall(int x, int y)
+    public void Fall(int x, int y)
     {
         transform.parent = null;
         move_target = new Vector3(x, 0.5f, y);
@@ -168,15 +181,25 @@ public class RobotMovement : MonoBehaviour
         moving = true;
     }
 
-    public void Respawn()
+    public bool FireRocket()
     {
-        // Set robot's parent to random free tile on row died on
+        GameObject rocket = Instantiate(rocket_prefab, transform.position, Quaternion.identity);
+        Rocket rocket_scr = rocket.GetComponent<Rocket>();
+        rocket_scr.SetTarget(grid_script.GetRobot(3));
+        return true;
+    }
+
+    public bool Respawn()
+    {
+        // Set robot's parent to random free tile on row below where they died
+        falling = true;       
         transform.parent = null;
         transform.parent = grid_script.GetFreeTile(y_pos).transform;
         x_pos = Mathf.RoundToInt(transform.parent.position.x);
         y_pos = Mathf.RoundToInt(transform.parent.position.z);
-        transform.position = new Vector3(x_pos, 10.0f, y_pos);
+        transform.position = new Vector3(transform.parent.position.x, 10.0f, transform.parent.position.z);
         fall_target = new Vector3(transform.parent.position.x, 0.5f, transform.parent.position.z);
+        return true;
     }
 
     void UpdatePosition()
