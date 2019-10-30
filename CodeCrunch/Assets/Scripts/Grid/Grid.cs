@@ -113,14 +113,23 @@ public class Grid : MonoBehaviour
 
     public GameObject GetFreeTile(int y)
     {
+        int check_y;
+        if (y == 0)
+        {
+            check_y = y;
+        }
+        else
+        {
+            check_y = y - 1;
+        }
         // Returns the first free tile on the selected row
         for (int i = 0; i < size_x; i++)
         {
-            if (spaces[i, y] != null)
+            if (spaces[i, check_y] != null)
             {
                 if (spaces[i, y].transform.childCount == 0)
                 {
-                    return spaces[i, y];
+                    return spaces[i, check_y];
                 }
             }
         }

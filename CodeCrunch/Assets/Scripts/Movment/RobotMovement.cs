@@ -168,7 +168,7 @@ public class RobotMovement : MonoBehaviour
         moving = true;
     }
 
-    public void Respawn()
+    public bool Respawn()
     {
         // Set robot's parent to random free tile on row died on
         transform.parent = null;
@@ -177,6 +177,7 @@ public class RobotMovement : MonoBehaviour
         y_pos = Mathf.RoundToInt(transform.parent.position.z);
         transform.position = new Vector3(x_pos, 10.0f, y_pos);
         fall_target = new Vector3(transform.parent.position.x, 0.5f, transform.parent.position.z);
+        return true;
     }
 
     void UpdatePosition()
