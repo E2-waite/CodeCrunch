@@ -22,10 +22,14 @@ public class TileTeleport : MonoBehaviour
                 if (transform.GetChild(0).gameObject.tag == "Robot")
                 {
                     GameObject robot = transform.GetChild(0).gameObject;
-                    RobotMovement robot_scr = robot.GetComponent<RobotMovement>();
-                    if (robot_scr.Respawn())
+                    if (robot.transform.position.x == transform.position.x &&
+                        robot.transform.position.z == transform.position.z)
                     {
-                        activated = true;
+                        RobotMovement robot_scr = robot.GetComponent<RobotMovement>();
+                        if (robot_scr.Respawn())
+                        {
+                            activated = true;
+                        }
                     }
                 }
             }

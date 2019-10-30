@@ -129,7 +129,7 @@ public class Grid : MonoBehaviour
         {
             if (spaces[i, check_y] != null)
             {
-                if (spaces[i, y].transform.childCount == 0)
+                if (spaces[i, check_y].transform.childCount == 0)
                 {
                     return spaces[i, check_y];
                 }
