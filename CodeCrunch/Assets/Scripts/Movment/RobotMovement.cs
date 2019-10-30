@@ -212,4 +212,13 @@ public class RobotMovement : MonoBehaviour
             }
         }
     }
+
+    public bool RobotInAction()
+    {
+        if (falling || moving || turning)
+        {
+            return true;
+        }
+        else return false;
+    }
 }

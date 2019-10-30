@@ -211,7 +211,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e43a305400ca284cb3d698032314f93, type: 3}
   m_Name: 
@@ -728,15 +728,35 @@ PrefabInstance:
       propertyPath: RepositoryID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1565933181677559515, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: commandDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1565933181945080499, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: RepositoryID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565933181945080499, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: commandDelay
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1565933181886915293, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: RepositoryID
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565933181886915293, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: commandDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565933181222011653, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: commandDelay
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1565933181431063840, guid: 378fb87ed15705949bb7acd1f71e2bf0, type: 3}
