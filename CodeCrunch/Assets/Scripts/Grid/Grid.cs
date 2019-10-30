@@ -8,7 +8,7 @@ public class Grid : MonoBehaviour
     public int size_x = 4;
     public int size_y = 4;
     private GameObject[,] spaces;
-    private GameObject[] robots;
+    [SerializeField] private GameObject[] robots;
     public GameObject floor_prefab;
     public GameObject robot_prefab;
     RobotMovement rob_mov;

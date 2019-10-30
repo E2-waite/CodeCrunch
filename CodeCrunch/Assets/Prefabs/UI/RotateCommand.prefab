@@ -67,10 +67,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1386827553491513283}
   - component: {fileID: 7650848608416134125}
   - component: {fileID: 6642994821144109653}
+  - component: {fileID: -1323387745458760414}
   m_Layer: 5
   m_Name: RotateCommand
   m_TagString: Command
@@ -232,3 +233,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCommand: {fileID: 1316487409372523641, guid: 94abcc82a21e1274b8fd76f220311fdc,
     type: 3}
+--- !u!114 &-1323387745458760414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420835507991150410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fedb459eb34ff44e92dba4fc8dcfe93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cmd: 0

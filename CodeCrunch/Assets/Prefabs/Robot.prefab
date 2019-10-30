@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7964690263099981353}
   - component: {fileID: 7964690263099981350}
   - component: {fileID: 7964690263099981351}
-  - component: {fileID: 7964690263099981348}
+  - component: {fileID: 5183571621269579302}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Robot
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7964690263099981348
+--- !u!114 &5183571621269579302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

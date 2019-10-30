@@ -15,24 +15,23 @@ public class MultiTargetCam : MonoBehaviour
     [SerializeField] private float maxZoom;
     [SerializeField] private float zoomLimit;
 
+
     //This gets a gameObject with all the players as child objects. e.g. a prefab with 2-4 child objects
-    [SerializeField] GameObject players;
+    [SerializeField]private GameObject[] allRobots;
 
     private Camera cam;
 
     void Start()
     {
         //Set active camera
-        cam = GetComponent<Camera>();
+        cam = Camera.main;
 
         //Find Game object with player and assign it with the players prefab gameobject.
-        players = GameObject.FindGameObjectWithTag("Players");
+       
 
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
-        for(int i = 0; i < players.transform.childCount; ++i)
-        {
-                targets.Add(players.transform.GetChild(i));    
-        }
+        Invoke("FindRobots", 1);
+
     }
 
     //Late update because we want to move the camera after everything else so it moves correctly.
@@ -45,12 +44,10 @@ public class MultiTargetCam : MonoBehaviour
 
         MoveCam();
         Zoom();
-
     }
 
     void MoveCam()
     {
-
         Vector3 centerPoint = GetCenterPoint();
 
         Vector3 newPosition = centerPoint + offset;
@@ -73,6 +70,7 @@ public class MultiTargetCam : MonoBehaviour
         }
 
         var bounds = new Bounds(targets[0].position, Vector3.zero);
+
         for(int i = 0; i < targets.Count; ++i)
         {
             bounds.Encapsulate(targets[i].position);
@@ -92,4 +90,16 @@ public class MultiTargetCam : MonoBehaviour
         }
         return bounds.size.x;
     }
+
+    private void FindRobots()
+    {
+        allRobots = GameObject.FindGameObjectsWithTag("Robot");
+        var robotCount = allRobots.Length;
+        foreach (var obj in allRobots)
+        {
+            targets.Add(obj.transform);
+        }
+    }
 }
+
+
