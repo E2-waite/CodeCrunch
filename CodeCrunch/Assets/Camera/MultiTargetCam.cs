@@ -48,7 +48,6 @@ public class MultiTargetCam : MonoBehaviour
 
     void MoveCam()
     {
-
         Vector3 centerPoint = GetCenterPoint();
 
         Vector3 newPosition = centerPoint + offset;
@@ -71,6 +70,7 @@ public class MultiTargetCam : MonoBehaviour
         }
 
         var bounds = new Bounds(targets[0].position, Vector3.zero);
+
         for(int i = 0; i < targets.Count; ++i)
         {
             bounds.Encapsulate(targets[i].position);
