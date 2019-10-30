@@ -35,7 +35,16 @@ public class CommandSpawnManager : MonoBehaviour
         {
             spawnRange = new Vector3(Random.Range(-100f, 100f), 0.75f, 0);
             int commandToSpawn = Random.Range(0, commands.Length);
-            GameObject uiCommand = Instantiate(commands[commandToSpawn], spawnRange, Quaternion.identity, uiCanvas.transform);
+            GameObject uiCommand;
+            if (commandToSpawn == 0)
+            {
+                uiCommand = Instantiate(commands[commandToSpawn], spawnRange, Quaternion.Euler(new Vector3(0, 0, 90)), uiCanvas.transform);
+            }
+            else
+            {
+                uiCommand = Instantiate(commands[commandToSpawn], spawnRange, Quaternion.identity, uiCanvas.transform);
+            }
+            
             uiCommand.GetComponent<RectTransform>().localPosition = new Vector2(0f, 600f);
             spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
             t = spawnTimer;
