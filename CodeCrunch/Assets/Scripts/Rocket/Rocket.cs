@@ -7,40 +7,67 @@ public class Rocket : MonoBehaviour
     bool target_set = false;
     GameObject target;
     Vector3 target_pos;
-    public float smooth;
     public float shot_speed;
+    Vector3 point0, point1, point2;
+    int current_target = 0;
+    private int num_points = 100;
+    private Vector3[] positions;
 
     void Start()
     {
-        target_pos = target.transform.position;
+        positions = new Vector3[num_points];
     }
 
     public void SetTarget(GameObject robot)
     {
         target = robot;
-        target_set = true;
+        point0 = transform.position;             
+        target_set = true;    
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        if(target_set)
+    {          
+        if (target_set)
         {
-            SmoothLookAt(target.transform.position);
-            transform.position = Vector3.Lerp(transform.position, target.transform.position ,shot_speed * Time.deltaTime);
-        }
+            point2 = target.transform.position;
+            Vector3 difference = point2 - point0;
+            Vector3 center = point0 + difference * 0.5f;
+            point1 = new Vector3(center.x, target.transform.position.y + 6, center.z);
 
-        if (transform.position == target.transform.position)
-        {
-            // Explode
-            Destroy(this.gameObject);
+            DrawQuadraticCurve();
+            target_pos = positions[current_target];
+            transform.LookAt(target_pos);        
+            transform.position = Vector3.MoveTowards(transform.position, target_pos ,shot_speed * Time.deltaTime); 
+            if (transform.position == target_pos  && current_target < num_points)
+            {
+                current_target++;
+            }
+
+            if (transform.position == target.transform.position)
+            {              
+                // Explode
+                Destroy(this.gameObject);
+            }
         }
     }
 
-    void SmoothLookAt(Vector3 target)
+    private void DrawQuadraticCurve()
     {
-        Vector3 dir = target - transform.position;
-        Quaternion targetRotation = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * smooth);
+        for (int i = 1; i < num_points + 1; i++)
+        {
+            float t = i / (float)num_points;
+            positions[i - 1] = CalculateQuadraticBezierPoint(t, point0, point1, point2);
+        }
+    }
+
+    private Vector3 CalculateQuadraticBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
+    {
+        float u = 1 - t;
+        float tt = t * t;
+        float uu = u * u;
+        Vector3 p = uu * p0;
+        p += 2 * u * t * p1;
+        p += tt * p2;
+        return p;
     }
 }
