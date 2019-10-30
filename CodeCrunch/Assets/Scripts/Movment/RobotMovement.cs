@@ -26,6 +26,18 @@ public class RobotMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp("w"))
+        {
+            MoveForward();
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            RotateRobot(false);
+        }
+        if (Input.GetKeyUp("d"))
+        {
+            RotateRobot(true);
+        }
         UpdatePosition();
     }
 
@@ -170,8 +182,8 @@ public class RobotMovement : MonoBehaviour
 
     public bool Respawn()
     {
-        falling = true;
-        // Set robot's parent to random free tile on row died on
+        // Set robot's parent to random free tile on row below where they died
+        falling = true;       
         transform.parent = null;
         transform.parent = grid_script.GetFreeTile(y_pos).transform;
         x_pos = Mathf.RoundToInt(transform.parent.position.x);

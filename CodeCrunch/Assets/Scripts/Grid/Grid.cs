@@ -55,6 +55,8 @@ public class Grid : MonoBehaviour
             robots[i] = Instantiate(robot_prefab, new Vector3(spaces[spawn_pos, 0].transform.position.x, 0.5f, spaces[spawn_pos, 0].transform.position.z), Quaternion.identity);
             robots[i].name = "Player " + (i + 1).ToString();
             robots[i].transform.parent = spaces[spawn_pos, 0].transform;
+            RobotData data_scr = robots[i].GetComponent<RobotData>();
+            data_scr.SetPlayerNum(i);
             RobotMovement move_scr = robots[i].GetComponent<RobotMovement>();
             move_scr.x_pos = spawn_pos;
         }
@@ -77,18 +79,18 @@ public class Grid : MonoBehaviour
         {
             rob_mov.RotateRobot(true);
         }
-        if (Input.GetKeyUp("w"))
-        {
-            rob_mov2.MoveForward();
-        }
-        if (Input.GetKeyUp("a"))
-        {
-            rob_mov2.RotateRobot(false);
-        }
-        if (Input.GetKeyUp("d"))
-        {
-            rob_mov2.RotateRobot(true);
-        }
+        //if (Input.GetKeyUp("w"))
+        //{
+        //    rob_mov2.MoveForward();
+        //}
+        //if (Input.GetKeyUp("a"))
+        //{
+        //    rob_mov2.RotateRobot(false);
+        //}
+        //if (Input.GetKeyUp("d"))
+        //{
+        //    rob_mov2.RotateRobot(true);
+        //}
     }
     public GameObject GetRobot(int num)
     {

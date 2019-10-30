@@ -106,10 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90059391ad204a4abf09db3af92e924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
+  tile_type: 1
 --- !u!114 &4533759495398581905
 MonoBehaviour:
   m_ObjectHideFlags: 0
