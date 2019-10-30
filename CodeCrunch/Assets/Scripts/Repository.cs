@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventTypes;
 
 public class Repository : MonoBehaviour
 {
     [SerializeField] private int RepositoryID;
-    [SerializeField] private List<CommandType> commandList;
+    [SerializeField] private List<Cmd> commandList;
     [SerializeField] private GameObject gameGrid;
-    [SerializeField] private GameObject robot;
 
-
-    public void addCommandToRepo(CommandType _command)
+    public void addCommandToRepo(Cmd _command)
     {
         commandList.Add(_command);
         gameGrid = GameObject.FindGameObjectWithTag("Grid");
@@ -22,15 +21,30 @@ public class Repository : MonoBehaviour
     {
         if(commandList.Count > 0)
         {
-
-            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().MoveRobot(0, 1);
+            //Switch statement to decide which function to call on robot.
+            switch(commandList[0].cmd)
+            {
+                case Cmd.CommandType.move:
+                {
+                    gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().MoveRobot(0, 1);
+                    break;
+                }
+                case Cmd.CommandType.rotate:
+                {
+                        //Deciding direction to turn.
+                        bool clockwise = false;
+                        if(commandList[0].rot == Cmd.RotationDirection.clockwise)
+                        {
+                            clockwise = true;
+                        }
+                        //End
+                        gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().RotateRobot(clockwise);
+                        break;
+                }
+            }
+            
         }
         
         
-    }
-
-    void FindRobot()
-    {
-
     }
 }
