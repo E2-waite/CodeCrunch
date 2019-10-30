@@ -10,6 +10,9 @@ public class Grid : MonoBehaviour
     private GameObject[,] spaces;
     [SerializeField] private GameObject[] robots;
     public GameObject floor_prefab;
+    public GameObject spin_floor_prefab;
+    public GameObject fall_floor_prefab;
+    public GameObject teleport_floor_prefab;
     public GameObject robot_prefab;
     RobotMovement rob_mov;
     RobotMovement rob_mov2;
@@ -22,26 +25,25 @@ public class Grid : MonoBehaviour
         {
             for (int j = 0; j < size_x; j++)
             {
-                spaces[j, i] = Instantiate(floor_prefab, new Vector3(j, 0, i), Quaternion.identity);
+                int floor_rand = Random.Range(0, 150);
+                if (floor_rand <= 120 || i == 0 || i == 1)
+                {
+                    spaces[j, i] = Instantiate(floor_prefab, new Vector3(j, 0, i), Quaternion.identity);
+                }
+                else if (floor_rand > 120 && floor_rand <= 130)
+                {
+                    spaces[j, i] = Instantiate(spin_floor_prefab, new Vector3(j, 0, i), Quaternion.identity);
+                }
+                else if (floor_rand > 130 && floor_rand <= 140)
+                {
+                    spaces[j, i] = Instantiate(fall_floor_prefab, new Vector3(j, 0, i), Quaternion.identity);
+                }
+                else if (floor_rand > 140)
+                {
+                    spaces[j, i] = Instantiate(teleport_floor_prefab, new Vector3(j, 0, i), Quaternion.identity);
+                }
                 spaces[j, i].transform.parent = this.transform;
                 spaces[j, i].name = "Space " + i.ToString() + "," + j.ToString();
-                GridData grid_data = spaces[j, i].GetComponent<GridData>();
-                if (j == 0)
-                {
-                    grid_data.left = true;
-                }
-                if (j == size_x)
-                {
-                    grid_data.right = true;
-                }
-                if (i == 0)
-                {
-                    grid_data.bottom = true;
-                }
-                if (i == size_y)
-                {
-                    grid_data.top = true;
-                }
             }
         }
 
