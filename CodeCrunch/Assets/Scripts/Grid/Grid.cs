@@ -79,6 +79,10 @@ public class Grid : MonoBehaviour
         {
             rob_mov.RotateRobot(true);
         }
+        if (Input.GetKeyUp("e"))
+        {
+            rob_mov.FireRocket();
+        }
         //if (Input.GetKeyUp("w"))
         //{
         //    rob_mov2.MoveForward();

@@ -9,6 +9,7 @@ public class RobotMovement : MonoBehaviour
     public float fall_speed = 5.0f;
     public float turn_speed = 2.0f;
     public int x_pos, y_pos = 0;
+    public GameObject rocket_prefab;
     Grid grid_script;
     GameObject grid;    
     Vector3 move_target;
@@ -178,6 +179,14 @@ public class RobotMovement : MonoBehaviour
         move_target = new Vector3(x, 0.5f, y);
         fall_target = new Vector3(x, -10.0f, y);
         moving = true;
+    }
+
+    public bool FireRocket()
+    {
+        GameObject rocket = Instantiate(rocket_prefab, transform.position, Quaternion.identity);
+        Rocket rocket_scr = rocket.GetComponent<Rocket>();
+        rocket_scr.SetTarget(grid_script.GetRobot(3));
+        return true;
     }
 
     public bool Respawn()
