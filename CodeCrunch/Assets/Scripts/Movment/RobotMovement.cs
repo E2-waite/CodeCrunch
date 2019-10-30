@@ -160,7 +160,7 @@ public class RobotMovement : MonoBehaviour
         moving = true;
     } 
 
-    void Fall(int x, int y)
+    public void Fall(int x, int y)
     {
         transform.parent = null;
         move_target = new Vector3(x, 0.5f, y);

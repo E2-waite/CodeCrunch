@@ -116,9 +116,12 @@ public class Grid : MonoBehaviour
         // Returns the first free tile on the selected row
         for (int i = 0; i < size_x; i++)
         {
-            if (spaces[i,y].transform.childCount == 0)
+            if (spaces[i, y] != null)
             {
-                return spaces[i, y];
+                if (spaces[i, y].transform.childCount == 0)
+                {
+                    return spaces[i, y];
+                }
             }
         }
         return null;
