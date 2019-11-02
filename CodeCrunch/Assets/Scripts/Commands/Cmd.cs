@@ -9,7 +9,8 @@ public class Cmd : MonoBehaviour
         none = -1,
         rotateclockwise,
         rotatecounterclockwise,
-        move            
+        move,
+        missile
     }
 
     public CommandType cmd = Cmd.CommandType.move;

@@ -61,6 +61,14 @@ public class Repository : MonoBehaviour
                             ++currentCommand;
                             break;
                         }
+                    case Cmd.CommandType.missile:
+                        {
+                            Debug.Log("Command In List: " + currentCommand + ". The command is Missile");
+                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().FireRocket();
+                            ++currentCommand;
+                            break;
+                        }
+
                 }
                 yield return wait;
             }
