@@ -13,11 +13,7 @@ public class CommandSpawnManager : MonoBehaviour
     public GameObject[] commands;
     private Vector3 spawnRange;
     public int commandToSpawn;
-    public RobotMovement Rm;
-
     private GameObject uiCanvas;
-
-    public Text CommandText;
 
     private void Start()
     {
@@ -48,21 +44,11 @@ public class CommandSpawnManager : MonoBehaviour
             uiCommand.GetComponent<RectTransform>().localPosition = new Vector2(0f, 600f);
             spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
             t = spawnTimer;
-
         }
-
-
         else
         {
             t -= Time.deltaTime;
         }
-
-
-
-
     }
-
-
-
 }
 
