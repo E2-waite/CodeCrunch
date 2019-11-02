@@ -17,6 +17,7 @@ public class LaserWallMovement : MonoBehaviour
     {
         Timer = 0;
         rb = GetComponent<Rigidbody>();
+        AudioManager.instance.Play("laser");
     }
 
     // Update is called once per frame
@@ -37,7 +38,7 @@ public class LaserWallMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Robot"))
         {
             Instantiate(RobotExplosion, other.transform.position, Quaternion.identity);
-            AudioManager.instance.Play("explosion");
+            AudioManager.instance.Play("robotexplosion");
             Destroy(other.gameObject);
         }
     }
