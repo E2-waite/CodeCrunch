@@ -9,7 +9,9 @@ public class LaserWallMovement : MonoBehaviour
 
     public float Timer;
     public float MaxTime = 10;
-    public Rigidbody rb;
+    private Rigidbody rb;
+    public GameObject RobotExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,25 +24,23 @@ public class LaserWallMovement : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
-        if(Timer > MaxTime)
+        if (Timer > MaxTime)
         {
             rb.AddForce(transform.forward * speed);
             Timer = 0;
-          
+
         }
-
-        
-
     }
 
-
     void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Robot"))
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Destroy(other.gameObject);
-            }
+            Instantiate(RobotExplosion, other.transform.position, Quaternion.identity);
+            AudioManager.instance.Play("explosion");
+            Destroy(other.gameObject);
         }
+    }
 }
 
 
