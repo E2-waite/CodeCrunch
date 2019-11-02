@@ -6,9 +6,9 @@ using EventTypes;
 public class Repository : MonoBehaviour
 {
     [SerializeField] private int RepositoryID;
-    [SerializeField] private List<Cmd.CommandType> commandList;
+    public List<Cmd.CommandType> commandList;
     [SerializeField] private GameObject gameGrid;
-    [SerializeField] private float commandDelay;
+    private float commandDelay = 1.5f;
 
     public void addCommandToRepo(Cmd.CommandType _command)
     {
@@ -21,11 +21,19 @@ public class Repository : MonoBehaviour
         StartCoroutine(DelayForCommands(commandDelay));
     }
 
+    public void EmptyCommands()
+    {
+        if (commandList.Count > 0)
+        {
+            commandList.Clear();
+        }
+    }
+
     IEnumerator DelayForCommands(float delay)
     {
         WaitForSeconds wait = new WaitForSeconds(delay);
         Debug.Log("Wait Over");
-        int currentCommand = 0;
+        int currentCommand = 1;
         if (commandList.Count > 0)
         {
             foreach (var cmd in commandList)
@@ -56,6 +64,8 @@ public class Repository : MonoBehaviour
                 }
                 yield return wait;
             }
+            EmptyCommands();
+
         }
     }
 }

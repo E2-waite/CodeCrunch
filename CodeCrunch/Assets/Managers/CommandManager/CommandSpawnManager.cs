@@ -38,7 +38,7 @@ public class CommandSpawnManager : MonoBehaviour
             GameObject uiCommand;
             if (commandToSpawn == 0)
             {
-                uiCommand = Instantiate(commands[commandToSpawn], spawnRange, Quaternion.Euler(new Vector3(0, 0, 90)), uiCanvas.transform);
+                uiCommand = Instantiate(commands[commandToSpawn], spawnRange, Quaternion.Euler(new Vector3(0, 0, 0)), uiCanvas.transform);
             }
             else
             {
