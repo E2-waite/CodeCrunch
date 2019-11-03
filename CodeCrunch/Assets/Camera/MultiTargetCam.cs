@@ -27,15 +27,11 @@ public class MultiTargetCam : MonoBehaviour
         cam = Camera.main;
 
         //Find Game object with player and assign it with the players prefab gameobject.
-        allRobots = GameObject.FindGameObjectsWithTag("Robot");
+       
 
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
+        Invoke("FindRobots", 1);
 
-        var robotCount = allRobots.Length;
-        foreach(var obj in allRobots)
-        {
-            targets.Add(obj.transform);
-        }
     }
 
     //Late update because we want to move the camera after everything else so it moves correctly.
@@ -48,12 +44,10 @@ public class MultiTargetCam : MonoBehaviour
 
         MoveCam();
         Zoom();
-
     }
 
     void MoveCam()
     {
-
         Vector3 centerPoint = GetCenterPoint();
 
         Vector3 newPosition = centerPoint + offset;
@@ -76,6 +70,7 @@ public class MultiTargetCam : MonoBehaviour
         }
 
         var bounds = new Bounds(targets[0].position, Vector3.zero);
+
         for(int i = 0; i < targets.Count; ++i)
         {
             bounds.Encapsulate(targets[i].position);
@@ -95,4 +90,16 @@ public class MultiTargetCam : MonoBehaviour
         }
         return bounds.size.x;
     }
+
+    private void FindRobots()
+    {
+        allRobots = GameObject.FindGameObjectsWithTag("Robot");
+        var robotCount = allRobots.Length;
+        foreach (var obj in allRobots)
+        {
+            targets.Add(obj.transform);
+        }
+    }
 }
+
+
