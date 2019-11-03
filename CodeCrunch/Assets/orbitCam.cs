@@ -54,6 +54,11 @@ public class orbitCam : MonoBehaviour
             //Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             //Vector3 position = rotation * negDistance + target.position;
 
+            if(Input.touchCount == 0)
+            {
+                velocityX = 0.02f;
+                velocityY = -0.02f;
+            }
             transform.rotation = rotation;
             //transform.position = position;
             velocityX = Mathf.Clamp(velocityX, -0.5f, 0.5f);
