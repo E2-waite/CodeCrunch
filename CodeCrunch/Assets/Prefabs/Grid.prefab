@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6828993803667346486}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6f48370f3a73f409271719e105a39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  num_robots: 4
   size_x: 4
   size_y: 10
+  robots: []
   floor_prefab: {fileID: 6345619018403495058, guid: 81f02145cf6af444bb8f5e6591946425,
+    type: 3}
+  spin_floor_prefab: {fileID: 6345619018403495058, guid: 8015d3b7258934b40a23afe5bd27e6b3,
+    type: 3}
+  fall_floor_prefab: {fileID: 6345619018403495058, guid: fd2b054eb401c534c8cfedff4c17fb3f,
+    type: 3}
+  teleport_floor_prefab: {fileID: 6345619018403495058, guid: 64f9de608a86b6a4e9799403accd7ba1,
+    type: 3}
+  robot_prefab: {fileID: 7964690263099981349, guid: e09a1fbd2cd49ea45b1afd08f6e74ef7,
     type: 3}
