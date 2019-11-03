@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class CountdownText : MonoBehaviour
 {
     private Text countdownText;
-
+    public GameObject[] repositorys;
+    public GameObject cmdSpawnManager;
     //change size
     public float currentTime = 0.0f;
     public float countdown;
@@ -72,13 +73,13 @@ public class CountdownText : MonoBehaviour
         {
             sound4 = true;
             AudioManager.instance.Play("go");
-        }
-
-        if (countdown <= 0)
-        {
+            foreach (var repository in repositorys)
+            {
+                repository.SetActive(true);
+            }
+            cmdSpawnManager.SetActive(true);
             Destroy(countdownText.gameObject);
         }
-
         countdown -= Time.deltaTime;
 
 

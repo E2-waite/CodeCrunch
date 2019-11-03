@@ -245,11 +245,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4734febb52dc3a844b0c4421fae7c2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  repositorys:
+  - {fileID: 1035276053}
+  - {fileID: 1775780226}
+  - {fileID: 110559067}
+  - {fileID: 199688247}
+  cmdSpawnManager: {fileID: 999774219}
   currentTime: 0
   countdown: 15
   goCountdown: 1
   lerpTimer: 0
   lerpSpeed: 1
+--- !u!1 &110559067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429715153518605274, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1776619166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &181320235
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +341,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_LocalRotation: {x: -0.0077672824, y: 0.9551219, z: -0.02514456, w: -0.29504195}
+  m_LocalRotation: {x: -0.0077672447, y: 0.9551219, z: -0.025144441, w: -0.29504195}
   m_LocalPosition: {x: 65.413666, y: 7.4864316, z: 78.69294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -407,6 +419,12 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!1 &199688247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429715153492949948, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1776619166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &267500340
 GameObject:
   m_ObjectHideFlags: 3
@@ -622,7 +640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534848663}
-  m_LocalRotation: {x: -0.0077672824, y: 0.9551219, z: -0.02514456, w: -0.29504195}
+  m_LocalRotation: {x: -0.0077672447, y: 0.9551219, z: -0.025144441, w: -0.29504195}
   m_LocalPosition: {x: 54.6, y: 3.4960113, z: 83.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -829,26 +847,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6729003630149891808, guid: 1a86997e4bc3ebe429e229ae4f9a2d95,
-        type: 3}
-      propertyPath: sounds.Array.data[1].pitch
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729003630149891808, guid: 1a86997e4bc3ebe429e229ae4f9a2d95,
-        type: 3}
-      propertyPath: sounds.Array.data[1].volume
-      value: 1.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729003630149891808, guid: 1a86997e4bc3ebe429e229ae4f9a2d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: f3d262bf626057149a5e2ae2175b52ab, type: 3}
-    - target: {fileID: 6729003630149891808, guid: 1a86997e4bc3ebe429e229ae4f9a2d95,
-        type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a86997e4bc3ebe429e229ae4f9a2d95, type: 3}
 --- !u!1 &999774219
@@ -905,6 +903,12 @@ MonoBehaviour:
   - {fileID: 5420835507991150410, guid: 69a8a57c7f455644b8d7b0e81821ed26, type: 3}
   - {fileID: 5420835507991150410, guid: ad2bfe26f044e734eabab8371ab7b07b, type: 3}
   commandToSpawn: 0
+--- !u!1 &1035276053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1776619166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268214025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1040,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1776619166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1775780226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429715153787946882, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1776619166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1776619166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1047,6 +1057,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429715153492949948, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1565933181695604824, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
@@ -1151,6 +1166,21 @@ PrefabInstance:
     - target: {fileID: 1565933181695604824, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429715153518605274, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429715153787946882, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1615276593, guid: 378fb87ed15705949bb7acd1f71e2bf0, type: 3}
@@ -1303,12 +1333,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
       propertyPath: MaxTime
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
       propertyPath: RobotExplosion
       value: 
       objectReference: {fileID: 4754635201580820844, guid: e6a2a572d24ad334e925d33521cba7e6,
         type: 3}
+    - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
+      propertyPath: Timer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}

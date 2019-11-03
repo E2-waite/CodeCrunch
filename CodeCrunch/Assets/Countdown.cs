@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    public float countdown = 10.0f;
+    public float countdown = 15.0f;
     public GameObject[] repositorys;
 
     private void Start()
@@ -25,7 +25,6 @@ public class Countdown : MonoBehaviour
         {
             countdown = 0;
         }
-       
     }
 
 }
