@@ -43,4 +43,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb465251151466e47995aa29a6e6271f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - clip: {fileID: 8300000, guid: db7d29e8df9fa534aa9183b73a794ba3, type: 3}
+    name: laser
+    volume: 0.5
+    pitch: 1
+    fadeInTime: 0
+    fadeOutTime: 0
+    loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c532eea228ea6a942bf14bb68c4ab113, type: 3}
+    name: robotexplosion
+    volume: 5
+    pitch: 0.58
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6539dc6a8558c7a4ea5e5b8204a91d0d, type: 3}
+    name: main
+    volume: 1.2
+    pitch: 1
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b87eb664326c7a948889ed6a6646a886, type: 3}
+    name: countdown
+    volume: 1.2
+    pitch: 1
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b87eb664326c7a948889ed6a6646a886, type: 3}
+    name: go
+    volume: 1.2
+    pitch: 3
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
