@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -341,7 +341,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_LocalRotation: {x: -0.0077672447, y: 0.9551219, z: -0.025144441, w: -0.29504195}
+  m_LocalRotation: {x: -0.00776732, y: 0.9551219, z: -0.025144685, w: -0.29504195}
   m_LocalPosition: {x: 65.413666, y: 7.4864316, z: 78.69294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -640,7 +640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534848663}
-  m_LocalRotation: {x: -0.0077672447, y: 0.9551219, z: -0.025144441, w: -0.29504195}
+  m_LocalRotation: {x: -0.00776732, y: 0.9551219, z: -0.025144685, w: -0.29504195}
   m_LocalPosition: {x: 54.6, y: 3.4960113, z: 83.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -768,9 +768,9 @@ MonoBehaviour:
     roll: 0
   - position: {x: -7.0376344, y: 4.065256, z: 21.104935}
     roll: 0
-  - position: {x: -10.067858, y: 1.2356262, z: 55.572544}
+  - position: {x: -20.01199, y: 1.2356262, z: 50.40171}
     roll: 0
-  - position: {x: -23.079473, y: 0, z: 98.38798}
+  - position: {x: -31.472195, y: 0, z: 94.02383}
     roll: 0
   - position: {x: -51.87458, y: 0, z: 105.33624}
     roll: 0
@@ -1058,7 +1058,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2429715153518605274, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2429715153492949948, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1168,16 +1178,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429715153518605274, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2429715153787946882, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: m_IsActive
@@ -1187,7 +1187,8 @@ PrefabInstance:
       propertyPath: countdown
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199688255, guid: 378fb87ed15705949bb7acd1f71e2bf0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 378fb87ed15705949bb7acd1f71e2bf0, type: 3}
 --- !u!1001 &1790847398
 PrefabInstance:
@@ -1330,19 +1331,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
-      propertyPath: MaxTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
-      propertyPath: RobotExplosion
-      value: 
-      objectReference: {fileID: 4754635201580820844, guid: e6a2a572d24ad334e925d33521cba7e6,
-        type: 3}
-    - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
-      propertyPath: Timer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
