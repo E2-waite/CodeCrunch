@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 181320240}
   - component: {fileID: 181320241}
   - component: {fileID: 181320239}
+  - component: {fileID: 181320242}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -341,7 +342,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_LocalRotation: {x: -0.0077674333, y: 0.9551218, z: -0.025145052, w: -0.29504195}
+  m_LocalRotation: {x: -0.007752698, y: 0.9552943, z: -0.025149541, w: -0.2944829}
   m_LocalPosition: {x: 65.413666, y: 7.4864316, z: 78.69294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -419,6 +420,25 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &181320242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181320235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e43a305400ca284cb3d698032314f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  offset: {x: 0, y: 0, z: 0}
+  smoothTime: 0
+  minZoom: 0
+  maxZoom: 0
+  zoomLimit: 0
+  allRobots: []
 --- !u!1 &199688247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2429715153492949948, guid: 378fb87ed15705949bb7acd1f71e2bf0,
@@ -640,7 +660,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534848663}
-  m_LocalRotation: {x: -0.0077674333, y: 0.9551218, z: -0.025145052, w: -0.29504195}
+  m_LocalRotation: {x: -0.007752698, y: 0.9552943, z: -0.025149541, w: -0.2944829}
   m_LocalPosition: {x: 54.6, y: 3.4960113, z: 83.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1564,7 +1584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
       propertyPath: MaxTime
-      value: 1
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
