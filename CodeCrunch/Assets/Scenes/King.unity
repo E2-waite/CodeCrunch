@@ -341,7 +341,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_LocalRotation: {x: -0.0077674333, y: 0.9551218, z: -0.025145052, w: -0.29504195}
+  m_LocalRotation: {x: -0.007767223, y: 0.9551218, z: -0.025144367, w: -0.29504204}
   m_LocalPosition: {x: 65.413666, y: 7.4864316, z: 78.69294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -640,7 +640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534848663}
-  m_LocalRotation: {x: -0.0077674333, y: 0.9551218, z: -0.025145052, w: -0.29504195}
+  m_LocalRotation: {x: -0.007767223, y: 0.9551218, z: -0.025144367, w: -0.29504204}
   m_LocalPosition: {x: 54.6, y: 3.4960113, z: 83.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -901,6 +901,10 @@ MonoBehaviour:
   - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
   - {fileID: 5420835507991150410, guid: 7140cf931f3440544a915005bff533f2, type: 3}
   - {fileID: 5420835507991150410, guid: 69a8a57c7f455644b8d7b0e81821ed26, type: 3}
+  - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
+  - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
+  - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
+  - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
   - {fileID: 5420835507991150410, guid: ad2bfe26f044e734eabab8371ab7b07b, type: 3}
   commandToSpawn: 0
 --- !u!1 &1035276053 stripped
@@ -1039,7 +1043,7 @@ PrefabInstance:
         type: 3}
       propertyPath: robot_prefab
       value: 
-      objectReference: {fileID: 7964690263099981349, guid: e09a1fbd2cd49ea45b1afd08f6e74ef7,
+      objectReference: {fileID: 8964723383850376682, guid: a27a9fa9a448cf34599d71a566e80454,
         type: 3}
     - target: {fileID: 6828993803667346486, guid: 2e7b8da699bd18047a03ff29de111651,
         type: 3}
@@ -1076,7 +1080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510307373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1564,7 +1568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
       propertyPath: MaxTime
-      value: 1
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22804360, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca880c865d3063c4f939f7cee5fb9242, type: 3}
