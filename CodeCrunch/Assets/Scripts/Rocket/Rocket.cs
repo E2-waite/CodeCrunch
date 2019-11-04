@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     bool target_set = false;
-    GameObject target;
+    public GameObject target;
     Vector3 target_pos;
     public float shot_speed;
     Vector3 point0, point1, point2;
@@ -50,8 +50,7 @@ public class Rocket : MonoBehaviour
                     RobotMovement robot_scr = target.GetComponent<RobotMovement>();
                     robot_scr.Respawn();
                     Destroy(this.gameObject);
-                }
-                // Explode                
+                }                
             }
         }
     }

@@ -146,6 +146,11 @@ public class Grid : MonoBehaviour
 
     GameObject CheckRow(int y)
     {
+        Debug.Log(y);
+        if (y < 0)
+        {
+            y = 0;
+        }
         bool all_checked = false;
         bool[] tile_checked = new bool[size_x];
         for (int i = 0; i < size_x; i++)
@@ -183,7 +188,7 @@ public class Grid : MonoBehaviour
 
     public GameObject GetFirst(int this_robot)
     {
-        for (int i = size_y - 1; i > 0; i--)
+        for (int i = size_y - 1; i >= 0; i--)
         {
             for (int j = 0; j < size_x; j++)
             {

@@ -17,6 +17,7 @@ public class RobotMovement : MonoBehaviour
     bool moving = false;
     bool falling = false;
     bool turning = false;
+    bool firing = false;
     Direction direction = Direction.up;
     RobotData data_scr;
     void Start()
