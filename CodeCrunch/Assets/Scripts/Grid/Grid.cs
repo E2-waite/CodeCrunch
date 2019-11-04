@@ -180,4 +180,22 @@ public class Grid : MonoBehaviour
         }
         return null;
     }
+
+    public GameObject GetFirst(int this_robot)
+    {
+        for (int i = size_y - 1; i > 0; i--)
+        {
+            for (int j = 0; j < size_x; j++)
+            {
+                if (spaces[j, i].transform.childCount > 0)
+                {
+                    if (spaces[j, i].transform.GetChild(0).gameObject != GetRobot(this_robot))
+                    {
+                        return spaces[j, i].transform.GetChild(0).gameObject;
+                    }
+                }
+            }
+        }
+        return null;
+    }
 }

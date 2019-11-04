@@ -45,8 +45,13 @@ public class Rocket : MonoBehaviour
 
             if (transform.position == target.transform.position)
             {              
-                // Explode
-                Destroy(this.gameObject);
+                if (target.tag == "Robot")
+                {
+                    RobotMovement robot_scr = target.GetComponent<RobotMovement>();
+                    robot_scr.Respawn();
+                    Destroy(this.gameObject);
+                }
+                // Explode                
             }
         }
     }

@@ -369,12 +369,12 @@ PrefabInstance:
     - target: {fileID: 6828993803667346486, guid: 2e7b8da699bd18047a03ff29de111651,
         type: 3}
       propertyPath: size_x
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6828993803667346486, guid: 2e7b8da699bd18047a03ff29de111651,
         type: 3}
       propertyPath: num_robots
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6828993803667346486, guid: 2e7b8da699bd18047a03ff29de111651,
         type: 3}
