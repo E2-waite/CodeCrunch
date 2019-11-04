@@ -216,11 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e43a305400ca284cb3d698032314f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  targets: []
   offset: {x: 0, y: 5.69, z: -1.63}
   smoothTime: 0.43
   minZoom: 100
@@ -341,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cmd: 0
+  rot: 0
 --- !u!1001 &941295899
 PrefabInstance:
   m_ObjectHideFlags: 0

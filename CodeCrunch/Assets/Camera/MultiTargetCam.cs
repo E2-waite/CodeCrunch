@@ -25,10 +25,7 @@ public class MultiTargetCam : MonoBehaviour
     {
         //Set active camera
         cam = Camera.main;
-
-        //Find Game object with player and assign it with the players prefab gameobject.
        
-
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
         Invoke("FindRobots", 1);
 
