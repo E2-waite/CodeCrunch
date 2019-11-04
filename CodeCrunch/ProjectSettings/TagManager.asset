@@ -9,6 +9,8 @@ TagManager:
   - Command
   - Canvas
   - Robot
+  - Laser
+  - Spaces
   layers:
   - Default
   - TransparentFX
