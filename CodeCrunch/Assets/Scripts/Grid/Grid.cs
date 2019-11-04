@@ -45,9 +45,10 @@ public class Grid : MonoBehaviour
                 }
                 spaces[j, i].transform.parent = this.transform;
                 spaces[j, i].name = "Space " + i.ToString() + "," + j.ToString();
-                //spaces[i, j].GetComponentInChildren<Transform>();
-                //spaces[j, i].gameObject.tag = "Spaces";
                 spaces[j, i].gameObject.tag = parentTag;
+                Rigidbody rb = spaces[j, i].gameObject.AddComponent<Rigidbody>();
+                rb.useGravity = false;
+                rb.isKinematic = true;
             
                
 

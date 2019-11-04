@@ -46,7 +46,11 @@ public class LaserWallMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Grid"))
 
         {
-            Destroy(other.gameObject);
+            if (other.attachedRigidbody)
+            { 
+                other.attachedRigidbody.useGravity = true;
+                other.attachedRigidbody.isKinematic = false;
+            }
         }
     }
 }
