@@ -49,8 +49,6 @@ public class RobotMovement : MonoBehaviour
             RotateRobot(true);
         }
 
-      
-
         UpdatePosition();
     }
 

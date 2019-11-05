@@ -54,8 +54,9 @@ public class Rocket : MonoBehaviour
             if (transform.position == target.transform.position)
             {              
                 if (target.tag == "Robot")
-                {
+                {  
                     StartCoroutine(Explode());
+                    
                 }                
             }
         }
@@ -70,6 +71,10 @@ public class Rocket : MonoBehaviour
         }
         audio_source.clip = explosion;
         audio_source.Play();
+
+       
+        Instantiate(binaryObject, target.transform.position, Quaternion.identity);
+
         RobotMovement robot_scr = target.GetComponent<RobotMovement>();
         robot_scr.Respawn();        
         yield return new WaitForSeconds(audio_source.clip.length);
