@@ -22,7 +22,7 @@ public class WinLose : MonoBehaviour
 
     private void Update()
     {
-        if (displayWinnerMenu || displayLoserMenu)
+        if (displayWinnerMenu)
         {
             timerDelay -= Time.deltaTime;
             if (timerDelay <= 0)
@@ -33,10 +33,6 @@ public class WinLose : MonoBehaviour
                     Destroy(LoserMenu);
 
                 }
-                //else if(displayLoserMenu)
-                //{
-                //    LoserMenu.SetActive(true);
-                //}
                 
                 foreach(var repo in Repositorys)
                 {
