@@ -17,12 +17,14 @@ public class RobotMovement : MonoBehaviour
     bool moving = false;
     bool falling = false;
     bool turning = false;
+    bool firing = false;
     Direction direction = Direction.up;
-
+    RobotData data_scr;
     void Start()
     {
         grid = GameObject.FindWithTag("Grid");
         grid_script = grid.GetComponent<Grid>();
+        data_scr = GetComponent<RobotData>();
     }
 
     void Update()
@@ -185,14 +187,15 @@ public class RobotMovement : MonoBehaviour
     {
         GameObject rocket = Instantiate(rocket_prefab, transform.position, Quaternion.identity);
         Rocket rocket_scr = rocket.GetComponent<Rocket>();
-        rocket_scr.SetTarget(grid_script.GetRobot(3));
+        rocket_scr.SetTarget(grid_script.GetFirst(data_scr.GetPlayerNum()));
         return true;
     }
 
     public bool Respawn()
     {
         // Set robot's parent to random free tile on row below where they died
-        falling = true;       
+        falling = true;
+        moving = false;
         transform.parent = null;
         transform.parent = grid_script.GetFreeTile(y_pos).transform;
         x_pos = Mathf.RoundToInt(transform.parent.position.x);
