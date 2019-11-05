@@ -6,45 +6,74 @@ using EventTypes;
 public class Repository : MonoBehaviour
 {
     [SerializeField] private int RepositoryID;
-    [SerializeField] private List<Cmd> commandList;
+    public List<Cmd.CommandType> commandList;
     [SerializeField] private GameObject gameGrid;
+    private float commandDelay = 1.5f;
 
-    public void addCommandToRepo(Cmd _command)
+    public void addCommandToRepo(Cmd.CommandType _command)
     {
         commandList.Add(_command);
         gameGrid = GameObject.FindGameObjectWithTag("Grid");
-        Invoke("FindRobot", 1);
     }
-
 
     public void doCommand()
     {
-        if(commandList.Count > 0)
+        StartCoroutine(DelayForCommands(commandDelay));
+    }
+
+    public void EmptyCommands()
+    {
+        if (commandList.Count > 0)
         {
-            //Switch statement to decide which function to call on robot.
-            switch(commandList[0].cmd)
-            {
-                case Cmd.CommandType.move:
-                {
-                    gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().MoveRobot(0, 1);
-                    break;
-                }
-                case Cmd.CommandType.rotate:
-                {
-                        //Deciding direction to turn.
-                        bool clockwise = false;
-                        if(commandList[0].rot == Cmd.RotationDirection.clockwise)
-                        {
-                            clockwise = true;
-                        }
-                        //End
-                        gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().RotateRobot(clockwise);
-                        break;
-                }
-            }
-            
+            commandList.Clear();
         }
-        
-        
+    }
+
+    IEnumerator DelayForCommands(float delay)
+    {
+        WaitForSeconds wait = new WaitForSeconds(delay);
+        Debug.Log("Wait Over");
+        int currentCommand = 1;
+        if (commandList.Count > 0)
+        {
+            foreach (var cmd in commandList)
+            {
+                switch (cmd)
+                {
+                    case Cmd.CommandType.move:
+                        {
+                            Debug.Log("Command In List: " + currentCommand + ". The command is moving.");
+                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().MoveRobot(0, 1);
+                            ++currentCommand;
+                            break;
+                        }
+                    case Cmd.CommandType.rotateclockwise:
+                        {
+                            Debug.Log("Command In List: " + currentCommand + ". The command is rotate+");
+                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().RotateRobot(true);
+                            ++currentCommand;
+                            break;
+                        }
+                    case Cmd.CommandType.rotatecounterclockwise:
+                        {
+                            Debug.Log("Command In List: " + currentCommand + ". The command is rotate-");
+                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().RotateRobot(false);
+                            ++currentCommand;
+                            break;
+                        }
+                    case Cmd.CommandType.missile:
+                        {
+                            Debug.Log("Command In List: " + currentCommand + ". The command is Missile");
+                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().FireRocket();
+                            ++currentCommand;
+                            break;
+                        }
+
+                }
+                yield return wait;
+            }
+            EmptyCommands();
+
+        }
     }
 }
