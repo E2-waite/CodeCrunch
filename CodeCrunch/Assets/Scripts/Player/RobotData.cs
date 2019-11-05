@@ -6,11 +6,14 @@ public class RobotData : MonoBehaviour
 {
     public int player_num = 5;
     Renderer player_rend;
+    GameObject[] colourRobot;
     bool colour_set;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player_rend = GetComponent<Renderer>();
+        colourRobot = GetComponentsInChildren<GameObject>();
     }
 
     // Update is called once per frame
@@ -57,10 +60,13 @@ public class RobotData : MonoBehaviour
     {
         player_num = num;
 
+       // colourRobot = GetComponentsInChildren<GameObject>();
+
         if (player_num == 0)
         {
             foreach (Renderer r in GetComponentsInChildren<Renderer>())
             {
+                
                 r.material.color = Color.red;
             }
         }

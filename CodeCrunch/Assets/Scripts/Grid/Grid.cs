@@ -8,7 +8,7 @@ public class Grid : MonoBehaviour
     public int size_x = 4;
     public int size_y = 4;
     private GameObject[,] spaces;
-    [SerializeField] private GameObject[] robots;
+    public GameObject[] robots;
     public GameObject floor_prefab;
     public GameObject spin_floor_prefab;
     public GameObject fall_floor_prefab;
@@ -92,18 +92,6 @@ public class Grid : MonoBehaviour
         {
             rob_mov.FireRocket();
         }
-        //if (Input.GetKeyUp("w"))
-        //{
-        //    rob_mov2.MoveForward();
-        //}
-        //if (Input.GetKeyUp("a"))
-        //{
-        //    rob_mov2.RotateRobot(false);
-        //}
-        //if (Input.GetKeyUp("d"))
-        //{
-        //    rob_mov2.RotateRobot(true);
-        //}
     }
     public GameObject GetRobot(int num)
     {

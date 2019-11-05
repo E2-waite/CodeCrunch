@@ -11,6 +11,8 @@ TagManager:
   - Robot
   - Laser
   - Spaces
+  - NoColour
+  - Colour
   layers:
   - Default
   - TransparentFX
