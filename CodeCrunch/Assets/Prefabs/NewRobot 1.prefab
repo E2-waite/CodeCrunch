@@ -3767,10 +3767,12 @@ MonoBehaviour:
   move_speed: 1
   fall_speed: 5
   turn_speed: 2
+  shot_cooldown: 2
   x_pos: 0
   y_pos: 0
   rocket_prefab: {fileID: 2574166228546654011, guid: f7e4a7559775927408fbd20f740eee9c,
     type: 3}
+  Rm_Ps: {fileID: 0}
 --- !u!114 &8250571133778006649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3783,6 +3785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f62fe7365ce9964cb100d9e66d10021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_num: 5
 --- !u!1 &7287315553614474971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,10 +4898,12 @@ MonoBehaviour:
   move_speed: 1
   fall_speed: 5
   turn_speed: 2
+  shot_cooldown: 2
   x_pos: 0
   y_pos: 0
   rocket_prefab: {fileID: 2574166228546654011, guid: f7e4a7559775927408fbd20f740eee9c,
     type: 3}
+  Rm_Ps: {fileID: 4080786385389756518, guid: 3d23f79237249c34f9c48a4fdea82a6c, type: 3}
 --- !u!114 &1101400029501146349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4911,6 +4916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f62fe7365ce9964cb100d9e66d10021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_num: 5
 --- !u!1 &9006922801188189170
 GameObject:
   m_ObjectHideFlags: 0

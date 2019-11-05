@@ -37,9 +37,6 @@ public class RobotMovement : MonoBehaviour
         if (Input.GetKeyUp("w"))
         {
             Instantiate(Rm_Ps, this.transform.position, Quaternion.identity);
-            //Rm_Ps.transform.position = this.transform.position;
-            ////Rm_Ps.transform.Rotate (0, 0, 0);
-            // Rm_Ps.transform.Rotate(0, 180, 0, Space.World);
            
             Rm_Ps.SetActive(true);
             MoveForward();
