@@ -73,10 +73,13 @@ public class MultiTargetCam : MonoBehaviour
         Zoom();
 
         // Changes back to orignal cam when won
-        if (winScript.activeSelf.Equals(true))
+        if(winScript != null)
         {
-            cam.enabled = true;
-            cam2.enabled = false;
+            if (winScript.activeSelf.Equals(true))
+            {
+                cam.enabled = true;
+                cam2.enabled = false;
+            }
         }
     }
 
