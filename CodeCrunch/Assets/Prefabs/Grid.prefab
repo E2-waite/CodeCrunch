@@ -55,5 +55,5 @@ MonoBehaviour:
     type: 3}
   teleport_floor_prefab: {fileID: 6345619018403495058, guid: 64f9de608a86b6a4e9799403accd7ba1,
     type: 3}
-  robot_prefab: {fileID: 7964690263099981349, guid: e09a1fbd2cd49ea45b1afd08f6e74ef7,
+  robot_prefab: {fileID: 8964723383850376682, guid: a27a9fa9a448cf34599d71a566e80454,
     type: 3}
