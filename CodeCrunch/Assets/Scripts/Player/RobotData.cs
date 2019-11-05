@@ -45,4 +45,9 @@ public class RobotData : MonoBehaviour
     {
         player_num = num;
     }
+
+    public int GetPlayerNum()
+    {
+        return player_num;
+    }
 }

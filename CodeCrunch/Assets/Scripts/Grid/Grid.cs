@@ -146,6 +146,11 @@ public class Grid : MonoBehaviour
 
     GameObject CheckRow(int y)
     {
+        Debug.Log(y);
+        if (y < 0)
+        {
+            y = 0;
+        }
         bool all_checked = false;
         bool[] tile_checked = new bool[size_x];
         for (int i = 0; i < size_x; i++)
@@ -175,6 +180,28 @@ public class Grid : MonoBehaviour
                 {
                     all_checked = false;
                     break;
+                }
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetFirst(int this_robot)
+    {
+        for (int i = size_y - 1; i >= 0; i--)
+        {
+            for (int j = 0; j < size_x; j++)
+            {
+                if (spaces[j, i].transform.childCount > 0)
+                {
+                    if (spaces[j, i].transform.GetChild(0).gameObject != GetRobot(this_robot))
+                    {
+                        RobotMovement robot_scr = spaces[j, i].transform.GetChild(0).gameObject.GetComponent<RobotMovement>();
+                        if (robot_scr.CanTarget())
+                        {
+                            return spaces[j, i].transform.GetChild(0).gameObject;
+                        }
+                    }
                 }
             }
         }

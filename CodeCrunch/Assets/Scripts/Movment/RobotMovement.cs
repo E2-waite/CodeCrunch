@@ -8,6 +8,7 @@ public class RobotMovement : MonoBehaviour
     public float move_speed = 1.0f;
     public float fall_speed = 5.0f;
     public float turn_speed = 2.0f;
+    public float shot_cooldown = 2.0f;
     public int x_pos, y_pos = 0;
     public GameObject rocket_prefab;
     Grid grid_script;
@@ -17,12 +18,14 @@ public class RobotMovement : MonoBehaviour
     bool moving = false;
     bool falling = false;
     bool turning = false;
+    bool can_fire = true;
     Direction direction = Direction.up;
-
+    RobotData data_scr;
     void Start()
     {
         grid = GameObject.FindWithTag("Grid");
         grid_script = grid.GetComponent<Grid>();
+        data_scr = GetComponent<RobotData>();
     }
 
     void Update()
@@ -183,16 +186,41 @@ public class RobotMovement : MonoBehaviour
 
     public bool FireRocket()
     {
+        GameObject target = grid_script.GetFirst(data_scr.GetPlayerNum());
+        if (can_fire && target != null)
+        {
+            StartCoroutine(RocketSequence(target));
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    IEnumerator RocketSequence(GameObject target)
+    {
+        can_fire = false;
         GameObject rocket = Instantiate(rocket_prefab, transform.position, Quaternion.identity);
         Rocket rocket_scr = rocket.GetComponent<Rocket>();
-        rocket_scr.SetTarget(grid_script.GetRobot(3));
-        return true;
+        rocket_scr.SetTarget(target);
+        yield return new WaitForSeconds(shot_cooldown);
+        can_fire = true;
+    }
+   
+    public bool CanTarget()
+    {
+        if (!falling && transform.parent != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     public bool Respawn()
     {
         // Set robot's parent to random free tile on row below where they died
-        falling = true;       
+        falling = true;
+        moving = false;
         transform.parent = null;
         transform.parent = grid_script.GetFreeTile(y_pos).transform;
         x_pos = Mathf.RoundToInt(transform.parent.position.x);
