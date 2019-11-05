@@ -37,6 +37,7 @@ public class TileDrop : MonoBehaviour
             GameObject robot = transform.GetChild(0).gameObject;
             RobotMovement robot_scr = robot.GetComponent<RobotMovement>();
             robot_scr.Fall(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.z));
+            AudioManager.instance.Play("tile_fall");
             Destroy(this.gameObject);
         }
     }

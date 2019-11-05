@@ -16,6 +16,7 @@ public class TileSpin : MonoBehaviour
                 {
                     GameObject robot = transform.GetChild(0).gameObject;
                     RobotMovement robot_scr = robot.GetComponent<RobotMovement>();
+                    AudioManager.instance.Play("tile_turn");
                     if (robot_scr.RotateRobot(Random.value > 0.5f))
                     {
                         activated = true;

@@ -113,6 +113,7 @@ public class RobotMovement : MonoBehaviour
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
     {
         turning = true;
+        AudioManager.instance.Play("robot_turn");
         var fromAngle = transform.rotation;
         var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
         for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
@@ -121,11 +122,13 @@ public class RobotMovement : MonoBehaviour
             yield return null;
         }
         transform.rotation = toAngle;
+        AudioManager.instance.Stop("robot_turn");
         turning = false;
     }
 
     public bool MoveRobot(int x_dir, int y_dir)
     {
+        bool drive_sound = false;
         int x = x_pos + x_dir, y = y_pos + y_dir;
         if (!moving && !falling && !turning)
         {
@@ -136,6 +139,13 @@ public class RobotMovement : MonoBehaviour
                 {
                     // If tile is empty, move to tile
                     Movement(x, y);
+                    if(!drive_sound)
+                    {
+                        AudioManager.instance.Play("drive");
+                        drive_sound = true;
+                    }
+                    
+
                     return true;
                 }
                 else
@@ -152,7 +162,9 @@ public class RobotMovement : MonoBehaviour
                         }
                         return false;
                     }
-                    return false;
+
+ 
+                    return false; 
                 }
             }
             else
@@ -162,7 +174,11 @@ public class RobotMovement : MonoBehaviour
                 return true;
             }
         }
+        
+            AudioManager.instance.Stop("drive");
+        
         return false;
+
     }
 
     void Movement(int x, int y)
@@ -182,6 +198,7 @@ public class RobotMovement : MonoBehaviour
         move_target = new Vector3(x, 0.5f, y);
         fall_target = new Vector3(x, -10.0f, y);
         moving = true;
+
     }
 
     public bool FireRocket()
@@ -189,6 +206,7 @@ public class RobotMovement : MonoBehaviour
         GameObject target = grid_script.GetFirst(data_scr.GetPlayerNum());
         if (can_fire && target != null)
         {
+
             StartCoroutine(RocketSequence(target));
             return true;
         }
@@ -201,6 +219,7 @@ public class RobotMovement : MonoBehaviour
     {
         can_fire = false;
         GameObject rocket = Instantiate(rocket_prefab, transform.position, Quaternion.identity);
+        AudioManager.instance.Play("rocket_launch");
         Rocket rocket_scr = rocket.GetComponent<Rocket>();
         rocket_scr.SetTarget(target);
         yield return new WaitForSeconds(shot_cooldown);
@@ -227,6 +246,7 @@ public class RobotMovement : MonoBehaviour
         y_pos = Mathf.RoundToInt(transform.parent.position.z);
         transform.position = new Vector3(transform.parent.position.x, 10.0f, transform.parent.position.z);
         fall_target = new Vector3(transform.parent.position.x, 0.5f, transform.parent.position.z);
+        AudioManager.instance.Play("landing");
         return true;
     }
 
@@ -247,6 +267,7 @@ public class RobotMovement : MonoBehaviour
             if (transform.parent == null)
             {
                 falling = true;
+                AudioManager.instance.Play("falling");
             }
             moving = false;
         }

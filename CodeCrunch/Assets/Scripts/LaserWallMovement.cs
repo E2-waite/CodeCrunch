@@ -38,11 +38,9 @@ public class LaserWallMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Robot"))
         {
             Instantiate(RobotExplosion, other.transform.position, Quaternion.identity);
-            AudioManager.instance.Play("robotexplosion");
-            //Destroy(other.gameObject);
-            //other.gameObject.SetActive(false);
-            other.gameObject.tag = "Untagged";
+            AudioManager.instance.Play("explosion");
             other.gameObject.SetActive(false);
+            other.gameObject.tag = "Untagged";
         }
 
 
