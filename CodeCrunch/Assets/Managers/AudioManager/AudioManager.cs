@@ -40,8 +40,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        Play("Test");
-        FadeIn("Test", 1, 5.0f);
+        Play("main");
     }
 
     public void Play(string sound_name)

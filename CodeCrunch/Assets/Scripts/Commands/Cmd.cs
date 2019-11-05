@@ -6,16 +6,12 @@ public class Cmd : MonoBehaviour
 {
     [System.Serializable]public enum CommandType
     {
-        rotate,
-        move
+        none = -1,
+        rotateclockwise,
+        rotatecounterclockwise,
+        move,
+        missile
     }
 
-    [System.Serializable] public enum RotationDirection
-    {
-        clockwise = 0,
-        anticlockwise = 1
-    }
-
-    public CommandType cmd;
-    public RotationDirection rot;
+    public CommandType cmd = Cmd.CommandType.move;
 }

@@ -18,19 +18,35 @@ public class MultiTargetCam : MonoBehaviour
 
     //This gets a gameObject with all the players as child objects. e.g. a prefab with 2-4 child objects
     [SerializeField]private GameObject[] allRobots;
+    [SerializeField] private GameObject[] allLasers;
 
-    private Camera cam;
+    public Camera cam;
+    public Camera cam2;
 
     void Start()
     {
-        //Set active camera
-        cam = Camera.main;
+        // Set active camera
+        cam.enabled = true;
+        cam2.enabled = false;
+
+        //cam = Camera.main;
        
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
         Invoke("FindRobots", 1);
-
+        Invoke("FindLasers", 1);
     }
 
+    private void Update()
+    {
+        StartCoroutine(WaitToChangeCam());
+    }
+
+    IEnumerator WaitToChangeCam()
+    {
+        yield return new WaitForSeconds(10);
+        cam.enabled = false;
+        cam2.enabled = true;
+    }
     //Late update because we want to move the camera after everything else so it moves correctly.
     private void LateUpdate()
     {
@@ -92,10 +108,25 @@ public class MultiTargetCam : MonoBehaviour
     {
         allRobots = GameObject.FindGameObjectsWithTag("Robot");
         var robotCount = allRobots.Length;
+
         foreach (var obj in allRobots)
         {
             targets.Add(obj.transform);
         }
+
+
+    }
+    private void FindLasers()
+    {
+        allLasers = GameObject.FindGameObjectsWithTag("Laser");
+        var laserCount = allLasers.Length;
+
+        foreach (var obj in allLasers)
+        {
+            targets.Add(obj.transform);
+        }
+
+
     }
 }
 

@@ -239,8 +239,8 @@ MonoBehaviour:
   targets: []
   offset: {x: 0, y: 10, z: -7.5}
   smoothTime: 0.5
-  minZoom: 100
-  maxZoom: 200
+  minZoom: 50
+  maxZoom: 100
   zoomLimit: 0.5
   allRobots:
   - {fileID: 0}
@@ -626,7 +626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cmd: 0
-  rot: 0
 --- !u!1001 &1839335798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -740,8 +739,6 @@ MonoBehaviour:
   - {fileID: 5420835507991150410, guid: c08b4329741510b46b299db5f7b430c9, type: 3}
   - {fileID: 5420835507991150410, guid: bc6b6c972b2c75848a41c195e7a440cb, type: 3}
   commandToSpawn: 0
-  Rm: {fileID: 0}
-  CommandText: {fileID: 0}
 --- !u!4 &2125573789
 Transform:
   m_ObjectHideFlags: 0
