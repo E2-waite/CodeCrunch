@@ -6,6 +6,7 @@ public class Defeat : MonoBehaviour
 {
     private GameObject grid;
     [SerializeField] private GameObject defeatCanvas;
+    [SerializeField] private GameObject winCanvas;
 
     private void Start()
     {
@@ -14,9 +15,20 @@ public class Defeat : MonoBehaviour
 
     void Update()
     {
-        if(grid.GetComponent<Grid>().robots.Length <= 0)
-        {
+        int null_count = 0;
 
+        foreach(var robot in grid.GetComponent<Grid>().robots)
+        {
+            if(robot == null)
+            {
+                null_count++;
+            }
+        }
+
+        if(null_count == 4)
+        {
+            defeatCanvas.SetActive(true);
+            Destroy(winCanvas);
         }
     }
 }

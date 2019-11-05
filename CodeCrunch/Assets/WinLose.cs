@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Winner : MonoBehaviour
+public class WinLose : MonoBehaviour
 {
     public GameObject WinnerMenu;
+    public GameObject LoserMenu;
     public GameObject[] Repositorys;
     public GameObject Spawnmanager;
     bool displayWinnerMenu = false;
+    bool displayLoserMenu = false;
     float timerDelay = 2.0f;
 
     private void OnTriggerEnter(Collider other)
@@ -20,12 +22,22 @@ public class Winner : MonoBehaviour
 
     private void Update()
     {
-        if (displayWinnerMenu)
+        if (displayWinnerMenu || displayLoserMenu)
         {
             timerDelay -= Time.deltaTime;
             if (timerDelay <= 0)
             {
-                WinnerMenu.SetActive(true);
+                if(displayWinnerMenu)
+                {
+                    WinnerMenu.SetActive(true);
+                    Destroy(LoserMenu);
+
+                }
+                //else if(displayLoserMenu)
+                //{
+                //    LoserMenu.SetActive(true);
+                //}
+                
                 foreach(var repo in Repositorys)
                 {
                     repo.SetActive(false);

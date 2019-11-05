@@ -342,7 +342,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_LocalRotation: {x: -0.019247502, y: 0.9534252, z: -0.06231376, w: -0.2944944}
+  m_LocalRotation: {x: -0.019247578, y: 0.9534252, z: -0.062314004, w: -0.2944944}
   m_LocalPosition: {x: 61.50278, y: 12.618616, z: 88.06134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -633,7 +633,6 @@ GameObject:
   - component: {fileID: 428535708}
   - component: {fileID: 428535711}
   - component: {fileID: 428535712}
-  - component: {fileID: 428535713}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -727,6 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinnerMenu: {fileID: 1282539695}
+  LoserMenu: {fileID: 1833866166}
   Repositorys:
   - {fileID: 1035276053}
   - {fileID: 1775780226}
@@ -749,19 +749,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &428535713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428535706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bae0734264bb84459cccb348d5acb58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defeatCanvas: {fileID: 1833866166}
 --- !u!1 &482786893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +1010,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534848663}
-  m_LocalRotation: {x: -0.019247502, y: 0.9534252, z: -0.06231376, w: -0.2944944}
+  m_LocalRotation: {x: -0.019247578, y: 0.9534252, z: -0.062314004, w: -0.2944944}
   m_LocalPosition: {x: 54.6, y: 3.4960113, z: 83.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1580,6 +1567,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 934731091}
+  - component: {fileID: 934731093}
+  - component: {fileID: 934731092}
   m_Layer: 0
   m_Name: WinConditions
   m_TagString: Untagged
@@ -1602,6 +1591,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &934731092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934731090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d194a4dba28c19a4f9208ffbc56325dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadePanel: {fileID: 571092493}
+--- !u!114 &934731093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934731090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bae0734264bb84459cccb348d5acb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeatCanvas: {fileID: 1833866166}
+  winCanvas: {fileID: 1282539695}
 --- !u!1001 &941295899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2014,6 +2030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinnerMenu: {fileID: 0}
+  LoserMenu: {fileID: 0}
   Repositorys: []
   Spawnmanager: {fileID: 0}
 --- !u!1 &1268214025
@@ -2101,6 +2118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinnerMenu: {fileID: 1282539695}
+  LoserMenu: {fileID: 1833866166}
   Repositorys:
   - {fileID: 1035276053}
   - {fileID: 1775780226}
@@ -2707,7 +2725,7 @@ GameObject:
   - component: {fileID: 1798805696}
   - component: {fileID: 1798805695}
   m_Layer: 5
-  m_Name: FadeOutPanelWinner
+  m_Name: FadeOutPanelWinnerandLoser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7760,7 +7778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfaa816a77d17a4bb8e9957fd7d8d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinnerMenu: {fileID: 1833866166}
+  WinnerMenu: {fileID: 1282539695}
+  LoserMenu: {fileID: 1833866166}
   Repositorys:
   - {fileID: 1035276053}
   - {fileID: 1775780226}
