@@ -15,11 +15,12 @@ public class Rocket : MonoBehaviour
     public AudioClip explosion;
     AudioSource audio_source;
     bool hit = false;
+    Renderer rend;
     void Start()
     {
         positions = new Vector3[num_points];
         audio_source = GetComponent<AudioSource>();
-
+        rend = GetComponent<Renderer>();
     }
 
     public void SetTarget(GameObject robot)
@@ -63,6 +64,7 @@ public class Rocket : MonoBehaviour
     IEnumerator Explode()
     {
         hit = true;
+        rend.enabled = false;
         audio_source.clip = explosion;
         audio_source.Play();
         RobotMovement robot_scr = target.GetComponent<RobotMovement>();
