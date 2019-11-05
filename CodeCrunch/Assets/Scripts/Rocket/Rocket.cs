@@ -64,7 +64,10 @@ public class Rocket : MonoBehaviour
     IEnumerator Explode()
     {
         hit = true;
-        rend.enabled = false;
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = false;
+        }
         audio_source.clip = explosion;
         audio_source.Play();
         RobotMovement robot_scr = target.GetComponent<RobotMovement>();
