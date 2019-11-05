@@ -38,8 +38,10 @@ public class RobotMovement : MonoBehaviour
         {
             Rm_Ps.GetComponent<ParticleSystem>().Play(true);
             Rm_Ps.transform.position = this.transform.position;
+            
 
-
+            
+            
             MoveForward();
             
         }
