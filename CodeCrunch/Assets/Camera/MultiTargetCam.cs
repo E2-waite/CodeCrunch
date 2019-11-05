@@ -18,22 +18,49 @@ public class MultiTargetCam : MonoBehaviour
 
     //This gets a gameObject with all the players as child objects. e.g. a prefab with 2-4 child objects
     [SerializeField]private GameObject[] allRobots;
+    [SerializeField] private GameObject[] allLasers;
 
-    private Camera cam;
+    public Camera cam;
+    public Camera cam2;
+
+    public GameObject winScript;
 
     void Start()
     {
-        //Set active camera
-        cam = Camera.main;
+        // Set active camera
+        cam.enabled = true;
+        cam2.enabled = false;
 
-        //Find Game object with player and assign it with the players prefab gameobject.
+        //cam = Camera.main;
        
-
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
         Invoke("FindRobots", 1);
+        Invoke("FindLasers", 1);
 
+        winScript = GameObject.Find("WinnerMenu");
     }
 
+    private void Update()
+    {
+        StartCoroutine(WaitToChangeCam());
+
+        for (int i = 0; i < targets.Count; ++i)
+        {
+            if (targets[i].gameObject.tag == "Untagged")
+            {
+              targets.Remove(targets[i]);
+            }
+        }
+
+        winScript = GameObject.Find("WinnerMenu");
+    }
+
+    IEnumerator WaitToChangeCam()
+    {
+        yield return new WaitForSeconds(10);
+        cam.enabled = false;
+        cam2.enabled = true;
+    }
     //Late update because we want to move the camera after everything else so it moves correctly.
     private void LateUpdate()
     {
@@ -44,6 +71,13 @@ public class MultiTargetCam : MonoBehaviour
 
         MoveCam();
         Zoom();
+
+        // Changes back to orignal cam when won
+        if (winScript.activeSelf.Equals(true))
+        {
+            cam.enabled = true;
+            cam2.enabled = false;
+        }
     }
 
     void MoveCam()
@@ -95,10 +129,25 @@ public class MultiTargetCam : MonoBehaviour
     {
         allRobots = GameObject.FindGameObjectsWithTag("Robot");
         var robotCount = allRobots.Length;
+
         foreach (var obj in allRobots)
         {
             targets.Add(obj.transform);
         }
+
+
+    }
+    private void FindLasers()
+    {
+        allLasers = GameObject.FindGameObjectsWithTag("Laser");
+        var laserCount = allLasers.Length;
+
+        foreach (var obj in allLasers)
+        {
+            targets.Add(obj.transform);
+        }
+
+
     }
 }
 
