@@ -29,7 +29,7 @@ public class CommandSpawnManager : MonoBehaviour
     {
         if (t <= 0)
         {
-            spawnRange = new Vector3(Random.Range(-100f, 100f), 0.75f, 0);
+            spawnRange = new Vector3(Random.Range(-10000f, 10000f), 0.75f, 0);
             int commandToSpawn = Random.Range(0, commands.Length);
             GameObject uiCommand;
             if (commandToSpawn == 0)
@@ -41,7 +41,7 @@ public class CommandSpawnManager : MonoBehaviour
                 uiCommand = Instantiate(commands[commandToSpawn], spawnRange, Quaternion.identity, uiCanvas.transform);
             }
             
-            uiCommand.GetComponent<RectTransform>().localPosition = new Vector2(0f, 600f);
+            uiCommand.GetComponent<RectTransform>().localPosition = new Vector2(Random.Range(-1000.0f, 1000.0f), 600);
             spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
             t = spawnTimer;
         }

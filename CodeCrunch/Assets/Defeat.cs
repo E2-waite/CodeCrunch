@@ -21,7 +21,7 @@ public class Defeat : MonoBehaviour
 
         foreach(var robot in grid.GetComponent<Grid>().robots)
         {
-            if(robot == null)
+            if(robot.tag == "Untagged")
             {
                 null_count++;
             }

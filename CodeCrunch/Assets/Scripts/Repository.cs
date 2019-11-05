@@ -43,7 +43,7 @@ public class Repository : MonoBehaviour
                     case Cmd.CommandType.move:
                         {
                             Debug.Log("Command In List: " + currentCommand + ". The command is moving.");
-                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().MoveRobot(0, 1);
+                            gameGrid.GetComponent<Grid>().GetRobot(RepositoryID).GetComponent<RobotMovement>().MoveForward();
                             ++currentCommand;
                             break;
                         }
