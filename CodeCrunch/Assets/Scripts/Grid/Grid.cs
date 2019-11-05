@@ -20,9 +20,10 @@ public class Grid : MonoBehaviour
     {
         spaces = new GameObject[size_x, size_y];
 
+        string parentTag = this.tag;
         // Sets up multidimensional array of grid tiles and sets their world position.
         for (int i = 0; i < size_y; i++)
-        {
+        {           
             for (int j = 0; j < size_x; j++)
             {
                 int floor_rand = Random.Range(0, 150);
@@ -44,9 +45,17 @@ public class Grid : MonoBehaviour
                 }
                 spaces[j, i].transform.parent = this.transform;
                 spaces[j, i].name = "Space " + i.ToString() + "," + j.ToString();
-            }
-        }
+                spaces[j, i].gameObject.tag = parentTag;
+                Rigidbody rb = spaces[j, i].gameObject.AddComponent<Rigidbody>();
+                rb.useGravity = false;
+                rb.isKinematic = true;
+            
+               
 
+            }
+          //  gameObject.tag = "Spaces";
+        }
+      
         // Spawns robots in the centre of the first row of grid tiles.
         robots = new GameObject[num_robots];
         for (int i = 0; i < num_robots; i++)
@@ -207,4 +216,7 @@ public class Grid : MonoBehaviour
         }
         return null;
     }
+
+
+ 
 }

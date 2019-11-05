@@ -41,6 +41,17 @@ public class LaserWallMovement : MonoBehaviour
             AudioManager.instance.Play("robotexplosion");
             Destroy(other.gameObject);
         }
+
+
+        if (other.gameObject.CompareTag("Grid"))
+
+        {
+            if (other.attachedRigidbody)
+            { 
+                other.attachedRigidbody.useGravity = true;
+                other.attachedRigidbody.isKinematic = false;
+            }
+        }
     }
 }
 
