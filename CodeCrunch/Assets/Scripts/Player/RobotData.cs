@@ -16,46 +16,6 @@ public class RobotData : MonoBehaviour
         colourRobot = GetComponentsInChildren<GameObject>();
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (!colour_set)
-    //    {
-    //        if (player_num == 0)
-    //        {
-    //            foreach (Renderer r in GetComponentsInChildren<Renderer>())
-    //            {
-    //               r.material.color = Color.red;
-    //            }
-    //            colour_set = true;
-    //        }
-    //        else if (player_num == 1)
-    //        {
-    //            foreach (Renderer r in GetComponentsInChildren<Renderer>())
-    //            {
-    //                r.material.color = Color.blue;
-    //            }
-    //            colour_set = true;
-    //        }
-    //        else if (player_num == 2)
-    //        {
-    //            foreach (Renderer r in GetComponentsInChildren<Renderer>())
-    //            {
-    //                r.material.color = Color.green;
-    //            }
-    //            colour_set = true;
-    //        }
-    //        else if (player_num == 3)
-    //        {
-    //            foreach (Renderer r in GetComponentsInChildren<Renderer>())
-    //            {
-    //                r.material.color = Color.yellow;
-    //            }
-    //            colour_set = true;
-    //        }
-    //    }
-    //}
-
     public void SetPlayerNum(int num)
     {
         player_num = num;

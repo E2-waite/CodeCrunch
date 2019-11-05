@@ -54,7 +54,7 @@ public class GridData : MonoBehaviour
             }
             else if (tile_type == TILE.fall)
             {
-                tile_rend.material.SetColor("_Color", new Color32(0, 201, 254, 1));
+                tile_rend.material.SetColor("_Color", new Color32(255, 100, 100, 1));
             }
         }
     }
