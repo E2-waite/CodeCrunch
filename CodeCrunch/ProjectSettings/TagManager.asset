@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Command
-  - Grid
-  - delete
   - Repository
+  - Grid
+  - Command
   - Canvas
   - Robot
+  - Laser
+  - Spaces
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - Command
+  - 
   - 
   - 
   - 
