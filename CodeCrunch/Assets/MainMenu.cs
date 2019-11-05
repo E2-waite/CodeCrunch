@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
             {
                 sceneChangePlay = false;
                 SceneManager.LoadScene(1);
+                AudioManager.instance.Play("menu_selection");
             }
         }
 
@@ -39,6 +40,7 @@ public class MainMenu : MonoBehaviour
             {
                 sceneChangePlay = false;
                 SceneManager.LoadScene(0);
+                AudioManager.instance.Play("menu_selection");
             }
         }
 
@@ -53,6 +55,7 @@ public class MainMenu : MonoBehaviour
             {
                 sceneChangePlay = false;
                 SceneManager.LoadScene(0);
+                AudioManager.instance.Play("menu_selection");
             }
         }
 

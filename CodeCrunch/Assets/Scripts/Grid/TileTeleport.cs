@@ -26,6 +26,7 @@ public class TileTeleport : MonoBehaviour
                         robot.transform.position.z == transform.position.z)
                     {
                         RobotMovement robot_scr = robot.GetComponent<RobotMovement>();
+                        AudioManager.instance.Play("tile_warp");
                         if (robot_scr.Respawn())
                         {
                             activated = true;

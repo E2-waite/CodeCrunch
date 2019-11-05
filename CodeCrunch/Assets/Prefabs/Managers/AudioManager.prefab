@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: db7d29e8df9fa534aa9183b73a794ba3, type: 3}
     name: laser
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     fadeInTime: 0
     fadeOutTime: 0
@@ -54,15 +54,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: c532eea228ea6a942bf14bb68c4ab113, type: 3}
     name: robotexplosion
-    volume: 1.13
+    volume: 0.5
     pitch: 0.55
     fadeInTime: 0.1
     fadeOutTime: 0.1
     loop: 0
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 6539dc6a8558c7a4ea5e5b8204a91d0d, type: 3}
-    name: main
-    volume: 1.2
+    name: background_song
+    volume: 0.8
     pitch: 1
     fadeInTime: 0.1
     fadeOutTime: 0.1
@@ -70,7 +70,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: b87eb664326c7a948889ed6a6646a886, type: 3}
     name: countdown
-    volume: 1.2
+    volume: 0.5
     pitch: 1
     fadeInTime: 0.1
     fadeOutTime: 0.1
@@ -78,6 +78,126 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: f3d262bf626057149a5e2ae2175b52ab, type: 3}
     name: go
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e229a6898a11caf4292c16d4bef9c0e1, type: 3}
+    name: combox3
+    volume: 5
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 5d672fa7551c1724d9137a8f5f0a7275, type: 3}
+    name: combox6
+    volume: 5
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 8ffc7540a954438478b214a447034318, type: 3}
+    name: combox10
+    volume: 5
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 855d4a217dc576e41a16f0043ab9d5d5, type: 3}
+    name: drive
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e9553a21b83857344b6f9875a00d9170, type: 3}
+    name: explosion
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7b8082639917ed149a8efa604463b1a8, type: 3}
+    name: falling
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a2c50ae3d821b86449796f15c56d164f, type: 3}
+    name: landing
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b3757a2d512df294f9258f0dc6fa8112, type: 3}
+    name: lose
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7dee2326400a47c44a0a32e265cf3fe5, type: 3}
+    name: menu_selection
+    volume: 5
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: bce2c235a2d77bb45a62c548ac75f0c6, type: 3}
+    name: robot_turn
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c532eea228ea6a942bf14bb68c4ab113, type: 3}
+    name: robot_explosion
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 673a5cdbf9661eb4b970f8d5a027a3db, type: 3}
+    name: rocket_launch
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e33976759e13509478381667f0a00b66, type: 3}
+    name: selection_drag
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6e60806ef45e08243bb267b053f6d975, type: 3}
+    name: tile_fall
+    volume: 14
+    pitch: 0.6
+    fadeInTime: 0.1
+    fadeOutTime: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4e27e77de9fad7644908ac04b424ebe1, type: 3}
+    name: tile_turn
     volume: 14
     pitch: 0.6
     fadeInTime: 0.1

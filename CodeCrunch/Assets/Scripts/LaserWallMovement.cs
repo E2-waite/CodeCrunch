@@ -38,7 +38,7 @@ public class LaserWallMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Robot"))
         {
             Instantiate(RobotExplosion, other.transform.position, Quaternion.identity);
-            AudioManager.instance.Play("robotexplosion");
+            AudioManager.instance.Play("explosion");
             Destroy(other.gameObject);
         }
 
