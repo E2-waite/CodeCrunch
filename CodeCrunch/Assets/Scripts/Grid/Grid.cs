@@ -196,7 +196,11 @@ public class Grid : MonoBehaviour
                 {
                     if (spaces[j, i].transform.GetChild(0).gameObject != GetRobot(this_robot))
                     {
-                        return spaces[j, i].transform.GetChild(0).gameObject;
+                        RobotMovement robot_scr = spaces[j, i].transform.GetChild(0).gameObject.GetComponent<RobotMovement>();
+                        if (robot_scr.CanTarget())
+                        {
+                            return spaces[j, i].transform.GetChild(0).gameObject;
+                        }
                     }
                 }
             }

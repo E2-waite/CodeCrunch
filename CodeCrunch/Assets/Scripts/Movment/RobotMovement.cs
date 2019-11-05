@@ -186,9 +186,10 @@ public class RobotMovement : MonoBehaviour
 
     public bool FireRocket()
     {
-        if (can_fire)
+        GameObject target = grid_script.GetFirst(data_scr.GetPlayerNum());
+        if (can_fire && target != null)
         {
-            StartCoroutine(RocketSequence());
+            StartCoroutine(RocketSequence(target));
             return true;
         }
         else
@@ -196,16 +197,25 @@ public class RobotMovement : MonoBehaviour
             return false;
         }
     }
-    IEnumerator RocketSequence()
+    IEnumerator RocketSequence(GameObject target)
     {
         can_fire = false;
         GameObject rocket = Instantiate(rocket_prefab, transform.position, Quaternion.identity);
         Rocket rocket_scr = rocket.GetComponent<Rocket>();
-        rocket_scr.SetTarget(grid_script.GetFirst(data_scr.GetPlayerNum()));
+        rocket_scr.SetTarget(target);
         yield return new WaitForSeconds(shot_cooldown);
         can_fire = true;
     }
    
+    public bool CanTarget()
+    {
+        if (!falling && transform.parent != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public bool Respawn()
     {
         // Set robot's parent to random free tile on row below where they died
