@@ -28,17 +28,18 @@ public class RobotMovement : MonoBehaviour
         grid = GameObject.FindWithTag("Grid");
         grid_script = grid.GetComponent<Grid>();
         data_scr = GetComponent<RobotData>();
-        Rm_Ps.SetActive(false);
-      
+        Rm_Ps.GetComponent<ParticleSystem>().Stop(false);
+
     }
 
     void Update()
     {
         if (Input.GetKeyUp("w"))
         {
-            Instantiate(Rm_Ps, this.transform.position, Quaternion.identity);
-           
-            Rm_Ps.SetActive(true);
+            Rm_Ps.GetComponent<ParticleSystem>().Play(true);
+            Rm_Ps.transform.position = this.transform.position;
+
+
             MoveForward();
             
         }
