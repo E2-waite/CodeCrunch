@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FadeIn : MonoBehaviour
 {
-    float transitionTimer = 3.0f;
+    public float transitionTimer = 3.0f;
     public GameObject FadePanel;
 
     void Update()

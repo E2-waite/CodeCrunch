@@ -19,6 +19,7 @@ public class RobotMovement : MonoBehaviour
     bool falling = false;
     bool turning = false;
     bool can_fire = true;
+    
     Direction direction = Direction.up;
     RobotData data_scr;
 
@@ -28,23 +29,17 @@ public class RobotMovement : MonoBehaviour
         grid = GameObject.FindWithTag("Grid");
         grid_script = grid.GetComponent<Grid>();
         data_scr = GetComponent<RobotData>();
-        Rm_Ps.GetComponent<ParticleSystem>().Stop(false);
-
     }
 
     void Update()
     {
         if (Input.GetKeyUp("w"))
         {
-            Rm_Ps.GetComponent<ParticleSystem>().Play(true);
-            Rm_Ps.transform.position = this.transform.position;
-            
-
-            
-            
+      
             MoveForward();
             
         }
+    
         if (Input.GetKeyUp("a"))
         {
             RotateRobot(false);
@@ -53,14 +48,18 @@ public class RobotMovement : MonoBehaviour
         {
             RotateRobot(true);
         }
+
+      
+
         UpdatePosition();
-
-
     }
 
     public bool MoveForward()
     {
-        switch(direction)
+       
+
+
+        switch (direction)
         {
             default:
             {
@@ -69,7 +68,8 @@ public class RobotMovement : MonoBehaviour
             }
             case Direction.up:
             {
-                return MoveRobot(0, 1);
+                    return MoveRobot(0, 1);
+                
                 break;
             }
             case Direction.right:
@@ -285,4 +285,11 @@ public class RobotMovement : MonoBehaviour
         }
         else return false;
     }
+
+    void FindParticleSystem()
+    {
+        //Rm_PS = Rm_Ps_GO.GetComponent<ParticleSystem>();
+    }
 }
+
+
