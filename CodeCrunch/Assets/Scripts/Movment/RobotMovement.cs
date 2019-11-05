@@ -29,14 +29,21 @@ public class RobotMovement : MonoBehaviour
         grid_script = grid.GetComponent<Grid>();
         data_scr = GetComponent<RobotData>();
         Rm_Ps.SetActive(false);
+      
     }
 
     void Update()
     {
         if (Input.GetKeyUp("w"))
         {
-            MoveForward();
+            Instantiate(Rm_Ps, this.transform.position, Quaternion.identity);
+            //Rm_Ps.transform.position = this.transform.position;
+            ////Rm_Ps.transform.Rotate (0, 0, 0);
+            // Rm_Ps.transform.Rotate(0, 180, 0, Space.World);
+           
             Rm_Ps.SetActive(true);
+            MoveForward();
+            
         }
         if (Input.GetKeyUp("a"))
         {
@@ -47,6 +54,8 @@ public class RobotMovement : MonoBehaviour
             RotateRobot(true);
         }
         UpdatePosition();
+
+
     }
 
     public bool MoveForward()
