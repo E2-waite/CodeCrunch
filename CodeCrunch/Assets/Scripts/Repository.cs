@@ -5,7 +5,7 @@ using EventTypes;
 
 public class Repository : MonoBehaviour
 {
-    [SerializeField] private int RepositoryID;
+    public int RepositoryID;
     public List<Cmd.CommandType> commandList;
     [SerializeField] private GameObject gameGrid;
     private float commandDelay = 1.5f;

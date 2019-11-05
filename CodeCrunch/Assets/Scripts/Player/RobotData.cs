@@ -13,7 +13,6 @@ public class RobotData : MonoBehaviour
     void Awake()
     {
         player_rend = GetComponent<Renderer>();
-        colourRobot = GetComponentsInChildren<GameObject>();
     }
 
     public void SetPlayerNum(int num)

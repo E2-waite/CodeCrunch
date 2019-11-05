@@ -14,12 +14,13 @@ public class Grid : MonoBehaviour
     public GameObject fall_floor_prefab;
     public GameObject teleport_floor_prefab;
     public GameObject robot_prefab;
-    RobotMovement rob_mov;
+    public RobotMovement rob_mov;
     RobotMovement rob_mov2;
+    
     void Start()
     {
         spaces = new GameObject[size_x, size_y];
-
+        
         string parentTag = this.tag;
         // Sets up multidimensional array of grid tiles and sets their world position.
         for (int i = 0; i < size_y; i++)

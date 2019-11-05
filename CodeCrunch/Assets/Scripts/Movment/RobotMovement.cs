@@ -16,7 +16,7 @@ public class RobotMovement : MonoBehaviour
     Vector3 move_target;
     Vector3 fall_target;
     bool moving = false;
-    bool falling = false;
+    public bool falling = false;
     bool turning = false;
     bool can_fire = true;
     Direction direction = Direction.up;
