@@ -72,6 +72,9 @@ public class Grid : MonoBehaviour
 
         rob_mov = robots[0].GetComponent<RobotMovement>();
         rob_mov2 = robots[1].GetComponent<RobotMovement>();
+
+
+        
     }
 
     void Update()

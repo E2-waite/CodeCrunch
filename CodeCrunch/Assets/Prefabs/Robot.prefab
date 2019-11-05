@@ -109,10 +109,12 @@ MonoBehaviour:
   move_speed: 1
   fall_speed: 5
   turn_speed: 2
+  shot_cooldown: 2
   x_pos: 0
   y_pos: 0
   rocket_prefab: {fileID: 2574166228546654011, guid: f7e4a7559775927408fbd20f740eee9c,
     type: 3}
+  Rm_Ps: {fileID: 4080786385389756518, guid: 3d23f79237249c34f9c48a4fdea82a6c, type: 3}
 --- !u!114 &2021782241742788990
 MonoBehaviour:
   m_ObjectHideFlags: 0

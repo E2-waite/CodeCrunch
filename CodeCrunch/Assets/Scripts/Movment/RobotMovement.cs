@@ -21,11 +21,14 @@ public class RobotMovement : MonoBehaviour
     bool can_fire = true;
     Direction direction = Direction.up;
     RobotData data_scr;
+
+    public GameObject Rm_Ps;
     void Start()
     {
         grid = GameObject.FindWithTag("Grid");
         grid_script = grid.GetComponent<Grid>();
         data_scr = GetComponent<RobotData>();
+        Rm_Ps.SetActive(false);
     }
 
     void Update()
@@ -33,6 +36,7 @@ public class RobotMovement : MonoBehaviour
         if (Input.GetKeyUp("w"))
         {
             MoveForward();
+            Rm_Ps.SetActive(true);
         }
         if (Input.GetKeyUp("a"))
         {
