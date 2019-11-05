@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserWallMovement : MonoBehaviour
 {
-    [Range( 2.0f, 20f)]
+    [Range(2.0f, 20f)]
     public int speed;
 
     public float Timer;
@@ -39,7 +39,10 @@ public class LaserWallMovement : MonoBehaviour
         {
             Instantiate(RobotExplosion, other.transform.position, Quaternion.identity);
             AudioManager.instance.Play("robotexplosion");
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            //other.gameObject.SetActive(false);
+            other.gameObject.tag = "Untagged";
+            other.gameObject.SetActive(false);
         }
 
 
@@ -47,7 +50,7 @@ public class LaserWallMovement : MonoBehaviour
 
         {
             if (other.attachedRigidbody)
-            { 
+            {
                 other.attachedRigidbody.useGravity = true;
                 other.attachedRigidbody.isKinematic = false;
             }
