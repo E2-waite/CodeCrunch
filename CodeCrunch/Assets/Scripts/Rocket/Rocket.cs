@@ -12,10 +12,15 @@ public class Rocket : MonoBehaviour
     int current_target = 0;
     private int num_points = 100;
     private Vector3[] positions;
-
+    public AudioClip explosion;
+    AudioSource audio_source;
+    bool hit = false;
+    Renderer rend;
     void Start()
     {
         positions = new Vector3[num_points];
+        audio_source = GetComponent<AudioSource>();
+        rend = GetComponent<Renderer>();
     }
 
     public void SetTarget(GameObject robot)
@@ -35,7 +40,10 @@ public class Rocket : MonoBehaviour
             point1 = new Vector3(center.x, target.transform.position.y + 6, center.z);
 
             DrawQuadraticCurve();
-            target_pos = positions[current_target];
+            if (!hit)
+            {
+                target_pos = positions[current_target];
+            }
             transform.LookAt(target_pos);        
             transform.position = Vector3.MoveTowards(transform.position, target_pos ,shot_speed * Time.deltaTime); 
             if (transform.position == target_pos  && current_target < num_points)
@@ -47,12 +55,25 @@ public class Rocket : MonoBehaviour
             {              
                 if (target.tag == "Robot")
                 {
-                    RobotMovement robot_scr = target.GetComponent<RobotMovement>();
-                    robot_scr.Respawn();
-                    Destroy(this.gameObject);
+                    StartCoroutine(Explode());
                 }                
             }
         }
+    }
+
+    IEnumerator Explode()
+    {
+        hit = true;
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = false;
+        }
+        audio_source.clip = explosion;
+        audio_source.Play();
+        RobotMovement robot_scr = target.GetComponent<RobotMovement>();
+        robot_scr.Respawn();        
+        yield return new WaitForSeconds(audio_source.clip.length);
+        Destroy(this.gameObject);
     }
 
     private void DrawQuadraticCurve()
