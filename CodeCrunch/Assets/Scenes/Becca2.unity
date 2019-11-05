@@ -341,7 +341,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181320235}
-  m_LocalRotation: {x: -0.019211456, y: 0.95360017, z: -0.062326565, w: -0.29392695}
+  m_LocalRotation: {x: -0.01921153, y: 0.9535982, z: -0.06232736, w: -0.29393324}
   m_LocalPosition: {x: 60.91278, y: 12.618616, z: 92.261345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -845,7 +845,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534848663}
-  m_LocalRotation: {x: -0.019211456, y: 0.95360017, z: -0.062326565, w: -0.29392695}
+  m_LocalRotation: {x: -0.01921153, y: 0.9535982, z: -0.06232736, w: -0.29393324}
   m_LocalPosition: {x: 54.6, y: 3.4960113, z: 83.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1840,6 +1840,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2429715153518605274, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429715153492949948, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1565933181695604824, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1945,6 +1960,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2429715153787946882, guid: 378fb87ed15705949bb7acd1f71e2bf0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1565933181677559515, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: gameGrid
@@ -1960,11 +1980,6 @@ PrefabInstance:
       propertyPath: gameGrid
       value: 
       objectReference: {fileID: 199688247}
-    - target: {fileID: 1565933182670648271, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1565933181695604825, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -1973,21 +1988,6 @@ PrefabInstance:
     - target: {fileID: 1615276593, guid: 378fb87ed15705949bb7acd1f71e2bf0, type: 3}
       propertyPath: countdown
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429715153492949948, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429715153518605274, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429715153787946882, guid: 378fb87ed15705949bb7acd1f71e2bf0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1565933181222011653, guid: 378fb87ed15705949bb7acd1f71e2bf0,
         type: 3}
@@ -7007,10 +7007,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2090698902}
   - component: {fileID: 2090698901}
-  - component: {fileID: 2090698900}
   - component: {fileID: 2090698899}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: GameCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7029,7 +7028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
-  offset: {x: 0, y: 15, z: -15}
+  offset: {x: 0, y: 15, z: -19}
   smoothTime: 0.5
   minZoom: 100
   maxZoom: 150
@@ -7038,14 +7037,6 @@ MonoBehaviour:
   allLasers: []
   cam: {fileID: 181320237}
   cam2: {fileID: 2090698901}
---- !u!81 &2090698900
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090698898}
-  m_Enabled: 1
 --- !u!20 &2090698901
 Camera:
   m_ObjectHideFlags: 0

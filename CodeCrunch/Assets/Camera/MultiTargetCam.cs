@@ -23,6 +23,8 @@ public class MultiTargetCam : MonoBehaviour
     public Camera cam;
     public Camera cam2;
 
+    public GameObject winScript;
+
     void Start()
     {
         // Set active camera
@@ -34,11 +36,23 @@ public class MultiTargetCam : MonoBehaviour
         //Add all active players to active multi-cam. This will get the children from the Players gameobject.
         Invoke("FindRobots", 1);
         Invoke("FindLasers", 1);
+
+        winScript = GameObject.Find("WinnerMenu");
     }
 
     private void Update()
     {
         StartCoroutine(WaitToChangeCam());
+
+        for (int i = 0; i < targets.Count; ++i)
+        {
+            if (targets[i].gameObject.tag == "Untagged")
+            {
+              targets.Remove(targets[i]);
+            }
+        }
+
+        winScript = GameObject.Find("WinnerMenu");
     }
 
     IEnumerator WaitToChangeCam()
@@ -57,6 +71,13 @@ public class MultiTargetCam : MonoBehaviour
 
         MoveCam();
         Zoom();
+
+        // Changes back to orignal cam when won
+        if (winScript.activeSelf.Equals(true))
+        {
+            cam.enabled = true;
+            cam2.enabled = false;
+        }
     }
 
     void MoveCam()
