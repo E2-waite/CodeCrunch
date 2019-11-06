@@ -13,6 +13,7 @@ TagManager:
   - Spaces
   - NoColour
   - Colour
+  - Rocket
   layers:
   - Default
   - TransparentFX

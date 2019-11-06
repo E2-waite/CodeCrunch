@@ -16,6 +16,7 @@ public class Rocket : MonoBehaviour
     AudioSource audio_source;
     bool hit = false;
     Renderer rend;
+    public GameObject rocketExplosion;
     void Start()
     {
         positions = new Vector3[num_points];
@@ -73,6 +74,7 @@ public class Rocket : MonoBehaviour
         RobotMovement robot_scr = target.GetComponent<RobotMovement>();
         robot_scr.Respawn();        
         yield return new WaitForSeconds(audio_source.clip.length);
+        Instantiate(rocketExplosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

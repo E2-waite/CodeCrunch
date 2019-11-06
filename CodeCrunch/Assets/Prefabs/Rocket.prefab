@@ -110,6 +110,8 @@ MonoBehaviour:
   target: {fileID: 0}
   shot_speed: 10
   explosion: {fileID: 8300000, guid: c532eea228ea6a942bf14bb68c4ab113, type: 3}
+  rocketExplosion: {fileID: 89665970468728902, guid: 486830f68ad1ddd4393b279f7234dabd,
+    type: 3}
 --- !u!82 &5588176824708404894
 AudioSource:
   m_ObjectHideFlags: 0
@@ -206,6 +208,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7424678168693939237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587946232925021971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa629f4eaa40f649bad8b9c87ecd1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RocketExplosion: {fileID: 0}
 --- !u!1001 &5821982742535028250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,6 +305,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c22a9ceadc1ba8b4f8759faa92167f0d, type: 3}
+--- !u!1 &2587946232925021971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c22a9ceadc1ba8b4f8759faa92167f0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5821982742535028250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1563139104342316288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: c22a9ceadc1ba8b4f8759faa92167f0d,

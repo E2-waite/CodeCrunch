@@ -34,6 +34,7 @@ public class UI_FX : MonoBehaviour
     {
         if(clickFX != null)
         {
+            AudioManager.instance.Play("compile");
             var vfx = Instantiate(clickFX, origin.transform.position, Quaternion.identity) as GameObject;
             vfx.transform.SetParent(origin.transform);
 

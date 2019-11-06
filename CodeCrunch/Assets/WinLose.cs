@@ -11,12 +11,14 @@ public class WinLose : MonoBehaviour
     bool displayWinnerMenu = false;
     bool displayLoserMenu = false;
     float timerDelay = 2.0f;
+    public int winnerNumber;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Robot"))
         {
             displayWinnerMenu = true;
+            winnerNumber = other.gameObject.GetComponent<RobotData>().player_num;
         }
     }
 
@@ -33,8 +35,8 @@ public class WinLose : MonoBehaviour
                     Destroy(LoserMenu);
 
                 }
-                
-                foreach(var repo in Repositorys)
+                Spawnmanager.SetActive(false);
+                foreach (var repo in Repositorys)
                 {
                     repo.SetActive(false);
                 }
@@ -43,7 +45,10 @@ public class WinLose : MonoBehaviour
                 {
                     Destroy(cmd);
                 }
-                Spawnmanager.SetActive(false);
+               
+                AudioManager.instance.Stop("background_song");
+                AudioManager.instance.Play("win");
+
                 Destroy(gameObject);
             }
         }

@@ -11,6 +11,7 @@ public class LaserWallMovement : MonoBehaviour
     public float MaxTime = 10;
     private Rigidbody rb;
     public GameObject RobotExplosion;
+    public GameObject[] repositorys;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,10 @@ public class LaserWallMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Robot"))
         {
             Instantiate(RobotExplosion, other.transform.position, Quaternion.identity);
-            AudioManager.instance.Play("explosion");
+            AudioManager.instance.Play("robotexplosion");
             other.gameObject.SetActive(false);
             other.gameObject.tag = "Untagged";
+            Destroy(repositorys[other.gameObject.GetComponent<RobotData>().player_num].gameObject);
         }
 
 

@@ -6,7 +6,6 @@ public class uiCollision : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision/Trigger");
         if (other.gameObject.CompareTag("Command"))
         {
             if(other.gameObject.GetComponent<OnUITouch>().dragging)

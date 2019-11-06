@@ -25,7 +25,6 @@ public class MainMenu : MonoBehaviour
             {
                 sceneChangePlay = false;
                 SceneManager.LoadScene(1);
-                AudioManager.instance.Play("menu_selection");
             }
         }
 
@@ -40,7 +39,6 @@ public class MainMenu : MonoBehaviour
             {
                 sceneChangePlay = false;
                 SceneManager.LoadScene(0);
-                AudioManager.instance.Play("menu_selection");
             }
         }
 
@@ -55,7 +53,6 @@ public class MainMenu : MonoBehaviour
             {
                 sceneChangePlay = false;
                 SceneManager.LoadScene(0);
-                AudioManager.instance.Play("menu_selection");
             }
         }
 
@@ -63,19 +60,29 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        AudioManager.instance.Play("gamestart");
         FadePanel.SetActive(true);
         sceneChangePlay = true;
     }
 
     public void QuitGame()
     {
+
+        AudioManager.instance.Play("menu_selection");
         Debug.Log("Quit");
         Application.Quit();
     }
 
     public void ReturnMenu()
     {
+        AudioManager.instance.Play("menu_selection");
+        AudioManager.instance.Play("background_song");
         FadePanel.SetActive(true);
         sceneChangeMenu = true;
+    }
+
+    public void MenuSelection()
+    {
+        AudioManager.instance.Play("menu_selection");
     }
 }

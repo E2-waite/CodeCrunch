@@ -9,6 +9,7 @@ public class Defeat : MonoBehaviour
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject[] repositorys;
     [SerializeField] private GameObject SpawnManager;
+    bool lose_music = false;
 
     private void Start()
     {
@@ -31,16 +32,24 @@ public class Defeat : MonoBehaviour
         {
             defeatCanvas.SetActive(true);
             Destroy(winCanvas);
-            foreach (var repo in repositorys)
-            {
-                repo.SetActive(false);
-            }
+
             var allCommands = GameObject.FindGameObjectsWithTag("Command");
             foreach (GameObject cmd in allCommands)
             {
                 Destroy(cmd);
             }
             SpawnManager.SetActive(false);
+            if(!lose_music)
+            {
+                lose_music = true;
+                AudioManager.instance.Play("lose");
+            }
+            AudioManager.instance.Stop("background_song");
+            foreach (var repo in repositorys)
+            {
+                if (repo != null)
+                    repo.SetActive(false);
+            }
         }
     }
 }
