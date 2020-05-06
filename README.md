@@ -1,6 +1,6 @@
 # CodeCrunch- Team Rex
 
-CGD Ark Game Game Jam #1
+CopdeCrunch Game Jam #2
 
 Contributors: 
 
