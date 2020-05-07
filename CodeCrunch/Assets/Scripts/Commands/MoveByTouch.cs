@@ -25,6 +25,10 @@ public class MoveByTouch : MonoBehaviour
 
             }
         }
+        else if(Input.GetMouseButtonDown(0))
+        {
+
+        }
 
 
     }
